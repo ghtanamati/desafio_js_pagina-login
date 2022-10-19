@@ -1,0 +1,210 @@
+*{
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+main{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+/* MENU LATERAL */
+
+nav{
+    width: 30%;
+    border-right: 1px solid gray;
+    font-family: Verdana, Tahoma, sans-serif;
+}
+
+nav > ul{
+    align-items: center;
+}
+
+nav > ul > li{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+nav > ul > li.icons{
+    padding-right: 5px;
+}
+
+
+/* MENU CLIENTES*/
+
+fieldset#clientsFieldset{
+    font-family: Tahoma, sans-serif;
+    font-size: 13px;
+    width: 350px;
+    height: 190px;
+    border-radius: 3px;
+    position: relative;
+    left: 10%;
+}
+
+fieldset > legend{
+    text-decoration-line: underline;
+    font-weight: bold;
+}
+
+fieldset > form {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+fieldset > form > div.all_inputs{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+fieldset > form > div.allButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+fieldset > form > div > div#arrows{
+    width: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+fieldset > form > div > div#buttons{
+    width: 130px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+fieldset > form > div > div > input{
+    color: white;
+    justify-content: center;
+    cursor: pointer;
+    border: 0px;
+    border-radius: 3px;
+    width: 60px;
+    padding: 3px;
+}
+
+fieldset > form > div > div > input.arw{
+    background-color: purple;
+    width: 35px;
+}
+
+fieldset > form > div > div > input#saveButton{
+    background-color: green;
+}
+
+fieldset > form > div > div > input#newButton{
+    background-color: blue;
+}
+
+fieldset > form > div#ordersItem{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+fieldset > form > div > div#subOrders{
+    display: flex;
+    flex-direction: row;
+}
+
+
+/* MENU PRODUTOS*/
+
+fieldset#productsFieldset{
+    font-family: Tahoma, sans-serif;
+    font-size: 13px;
+    width: 350px;
+    height: 200px;
+    border-radius: 3px;
+    position: relative;
+    left: 10%;
+}
+
+
+/* MENU PEDIDOS*/
+
+fieldset#ordersFieldset{
+    font-family: Tahoma, sans-serif;
+    font-size: 13px;
+    width: 500px;
+    height: 300px;
+    border-radius: 3px;
+    position: relative;
+    left: 10%;
+}
+
+fieldset > form > div#ordersDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+fieldset > form > div#locateProducts{
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid black;
+    margin-bottom: 15px;
+}
+
+fieldset > form > div > div#locateIds{
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightgray;
+}
+
+fieldset > form > div > div > input{
+    height: 23px;
+}
+
+fieldset > form > div > div > input#locateButton{
+    width: 35%;
+    color: black;
+    border: 1px solid gray;
+}
+
+fieldset > form > div > div > input#locateQtty{
+    width: 7%;
+    color: black;
+    background-color: white;
+    border: 1px solid gray;
+}
+
+fieldset > form > div#ordersItem{
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid black;
+    justify-content: space-between;
+}
+
+fieldset > form > div > legend{
+    font-weight: bold;
+    color: darkblue;
+    margin-bottom: 10px;
+}
+
+div#subOrders{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+p{
+    font-weight: bold;
+}

@@ -1,0 +1,77 @@
+*{
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.flex{
+    display: flex;
+    flex-direction: column;
+}
+
+body{
+    background-image: url(/desafios/desafio_js_pagina-login/background-image-login.jpg);
+    background-position: top;
+}
+
+section form fieldset.field_set{
+    margin: 0 auto;
+    margin-top: 100px;
+    width: 300px;
+    height: auto;
+    padding: 8px;
+    border: 0px;
+    background-color: rgb(255, 255, 255, .6);
+    box-shadow: 2px 2px 5px black;
+    border-radius: 2px;
+}
+
+section form fieldset label{
+    font-family: sans-serif;
+    font-size: 1rem;
+    color: black;
+}
+
+section form fieldset label.password{
+    margin-top: 5px;
+}
+
+section form fieldset input{
+    margin: 0 auto;
+    font-family: sans-serif;
+    width: 100%;
+    border-radius: 3px;
+}
+
+section form fieldset input.input{
+    height: 30px;
+    padding: 7px;
+    font-size: 0.8rem;
+    background-color: lightyellow;
+    border: 0.5px solid gray;
+}
+
+section form fieldset input#botao{
+    width: 100%;
+    height: 45px;
+    margin-top: 8px;
+    font-family: sans-serif;
+    font-size: 1.3rem;
+    color: white;
+    background-color: rgb(17,49,90);
+    opacity: 100%;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+section form fieldset input#botao:hover{
+    background-color: rgb(92, 132, 166);
+}
+
+a{
+    text-decoration: none;
+}

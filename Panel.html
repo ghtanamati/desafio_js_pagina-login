@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!-- saved from url=(0068)http://localhost/desafios/desafio_js_pagina-login/destino/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./Panel_files/css2" rel="stylesheet">
+    <link rel="stylesheet" href="./Panel_files/style.css">
+    <title>Panel</title>
+</head>
+
+<body>
+    <main>
+        <nav class="flex">
+            <ul>
+                <li><span class="flex icons material-symbols-outlined">group</span>Clientes</li>
+                <li><span class="flex icons material-symbols-outlined">shopping_bag</span>Produtos</li>
+                <li><span class="flex icons material-symbols-outlined">shopping_cart</span>Pedidos</li>
+            </ul>
+        </nav>
+
+        <!-- <fieldset id="clientsFieldset" class="flex">
+            <legend>Clientes</legend>
+            <form id="clientForm" class="flex" method="post" name="clientForms">
+                <div id="clientsInputs" class="all_inputs flex">
+                    <label id="clientCodeLabel" class="flex" for="clientCode">Código</label>
+                    <input id="clientCodeInput" class="flex" type="text" name="clientCode" value="">
+                        
+                    <label id="clientLabel" class="flex" for="clientName">Nome</label>
+                    <input id="clientName" class="flex" type="text" name="clientName" value="" disabled>
+    
+                    <label id="labelData" class="flex" for="signUpDate" >Data Cadastro</label>
+                    <input id="signUpDate" class="flex" type="text" name="signUpDate" value="" disabled>
+                </div>
+                <div id="clientsButtons" class="allButtons flex">
+                    <div id="arrows" class="flex">
+                        <input id="leftArrow" class="arw flex" type="submit" name="leftArrow" value="<">
+                        <input id="rightArrow" class="arw flex" type="submit" name="rightArrow" value=">">
+                    </div>
+                    <div id="buttons" class="flex">
+                        <input id="newButton" class="flex" type="submit" name="newButton" value="Novo">
+                        <input id="saveButton" class="flex" type="submit" name="saveButton" value="Salvar">
+                    </div>
+                </div>
+            </form>
+        </fieldset>
+
+        <fieldset id="productsFieldset" class="flex">
+            <legend>Produtos</legend>
+            <form id="productsForm" class="flex" method="post" name="productsForms">
+                <div id="productsInputs" class="all_inputs flex">
+                    <label id="productCodeLabel" class="flex" for="productCode">Código</label>
+                    <input id="productCodeInput" class="flex" type="text" name="productCode" value="">
+                        
+                    <label id="descriptionLabel" class="flex" for="description">Descrição</label>
+                    <input id="descriptionInput" class="flex" type="text" name="description" value="" disabled>
+    
+                    <label id="priceLabel" class="flex" for="priceInput" >Preço</label>
+                    <input id="priceInput" class="flex" type="text" name="priceInput" value="" disabled>
+
+                    <label id="quantityLabel" class="flex" for="quantity" >Quantidade</label>
+                    <input id="quantityInput" class="flex" type="text" name="quantity" value="" disabled>
+                </div>
+                <div id="productsButtons" class="allButtons flex">
+                    <div id="arrows" class="flex">
+                        <input id="leftArrow" class="arw flex" type="submit" name="leftArrow" value="<">
+                        <input id="rightArrow" class="arw flex" type="submit" name="rightArrow" value=">">
+                    </div>
+                    <div id="buttons" class="flex">
+                        <input id="newButton" class="flex" type="submit" name="newButton" value="Novo">
+                        <input id="saveButton" class="flex" type="submit" name="saveButton" value="Salvar">
+                    </div>
+                </div>
+            </form>
+        </fieldset> -->
+
+        <fieldset id="ordersFieldset" class="flex">
+            <legend>Pedidos</legend>
+            <form id="ordersForm" class="flex" method="post" name="ordersForm">
+                <div id="ordersDiv" class="divInputs flex">
+                    <label id="ordersCodeLabel" class="flex" for="ordersCodeInput">Código do Cliente</label>
+                    <input id="ordersCodeInput" class="flex" type="text" name="ordersCodeInput" value="">
+                        
+                    <label id="ordersClientLabel" class="flex" for="ordersClientInput">Cliente</label>
+                    <input id="ordersClientInput" class="flex" type="text" name="ordersClientInput" value="" disabled="">
+                </div>
+
+                <div id="locateProducts" class="flex">
+                    <legend>Localizar Produto</legend>
+                    <div id="locateIds">
+                        <input id="priceInput" class="flex" type="text" name="priceInput" value="" disabled="">
+                        <input id="quantityInput" class="flex" type="text" name="quantity" value="" disabled="">
+                        <input id="quantityInput" class="flex" type="text" name="quantity" value="" disabled="">
+                        <input id="quantityInput" class="flex" type="text" name="quantity" value="" disabled="">
+                        <input id="leftArrow" class="arw flex" type="submit" name="leftArrow" value="Lançar Pedido">
+                    </div>
+                </div>
+
+                <div id="ordersItem" class="flex">
+                    <legend>Itens do Pedido</legend>
+                    <div id="subOrders" class="flex">
+                        <p>Item</p>
+                        <p>Descrição</p>
+                        <p>Preço</p>
+                        <p>Quantidade</p>
+                        <p>SubTotal</p>
+                    </div>
+                </div>
+                <div>
+                    <input type="text" name="totalPrice" id="totalPrice" value="" disabled="">
+                </div>
+            </form>
+        </fieldset>
+    </main>
+
+</body></html>
