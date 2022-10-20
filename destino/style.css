@@ -39,6 +39,10 @@ nav > ul > li.icons{
 
 /* MENU CLIENTES*/
 
+fieldset{
+    background-color: white;
+}
+
 fieldset#clientsFieldset{
     font-family: Tahoma, sans-serif;
     font-size: 13px;
@@ -46,7 +50,7 @@ fieldset#clientsFieldset{
     height: 190px;
     border-radius: 3px;
     position: relative;
-    left: 10%;
+    left: 5%;
 }
 
 fieldset > legend{
@@ -54,10 +58,22 @@ fieldset > legend{
     font-weight: bold;
 }
 
+input.closeBtn{
+    background-color: transparent;
+    border: 0px;
+    color: red;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+div.divButton{
+    display: flex;
+    justify-content: right;
+}
+
 fieldset > form {
     width: 100%;
     padding: 10px;
-    margin-top: 10px;
 }
 
 fieldset > form > div.all_inputs{
@@ -89,7 +105,6 @@ fieldset > form > div > div#buttons{
 fieldset > form > div > div > input{
     color: white;
     justify-content: center;
-    cursor: pointer;
     border: 0px;
     border-radius: 3px;
     width: 60px;
@@ -99,14 +114,17 @@ fieldset > form > div > div > input{
 fieldset > form > div > div > input.arw{
     background-color: purple;
     width: 35px;
+    cursor: pointer;
 }
 
 fieldset > form > div > div > input#saveButton{
     background-color: green;
+    cursor: pointer;
 }
 
 fieldset > form > div > div > input#newButton{
     background-color: blue;
+    cursor: pointer;
 }
 
 fieldset > form > div#ordersItem{
@@ -127,10 +145,10 @@ fieldset#productsFieldset{
     font-family: Tahoma, sans-serif;
     font-size: 13px;
     width: 350px;
-    height: 200px;
+    height: 225px;
     border-radius: 3px;
     position: relative;
-    left: 10%;
+    left: 5%;
 }
 
 
@@ -140,10 +158,10 @@ fieldset#ordersFieldset{
     font-family: Tahoma, sans-serif;
     font-size: 13px;
     width: 500px;
-    height: 300px;
+    height: 285px;
     border-radius: 3px;
     position: relative;
-    left: 10%;
+    left: 5%;
 }
 
 fieldset > form > div#ordersDiv{
@@ -161,29 +179,49 @@ fieldset > form > div#locateProducts{
 }
 
 fieldset > form > div > div#locateIds{
-    height: 30px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    background-color: lightgray;
 }
 
 fieldset > form > div > div > input{
     height: 23px;
 }
 
-fieldset > form > div > div > input#locateButton{
-    width: 35%;
+fieldset > form > div > div > input#locateCode{
+    width: 9%;
     color: black;
+    background-color: white;
+    border: 1px solid gray;
+}
+
+fieldset > form > div > div > input#locateName{
+    width: 30%;
+    color: black;
+    background-color: white;
+    border: 1px solid gray;
+}
+
+fieldset > form > div > div > input#locatePriceProd{
+    width: 13%;
+    color: black;
+    background-color: white;
     border: 1px solid gray;
 }
 
 fieldset > form > div > div > input#locateQtty{
-    width: 7%;
+    width: 13%;
     color: black;
     background-color: white;
     border: 1px solid gray;
+}
+
+fieldset > form > div > div > input#locateButton{
+    width: 35%;
+    color: black;
+    border: 1px solid gray;
+    cursor: pointer;
 }
 
 fieldset > form > div#ordersItem{
@@ -202,9 +240,44 @@ fieldset > form > div > legend{
 div#subOrders{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    font-weight: bold;
 }
 
-p{
+fieldset > form > div > div#ordersValue{
+    display: flex;
+    flex-direction: row;
+}
+
+div#totalPrice{
+    display: flex;
+    justify-content: right;
+}
+
+p.pTitle{
+    width: 15%;
+}
+
+p.pDescrip{
+    width: 44%;
+}
+
+p.pPrice{
+    width: 13%;
+}
+
+p.pQtty{
+    width: 13%;
+}
+
+p.pSubTotal{
+    width: 15%;
+}
+
+input#totalPriceValue{
+    background-color: lightgray;
+    width: 15%;
+    color: darkred;
+    border: 0px;
+    font-size: 14px;
     font-weight: bold;
 }

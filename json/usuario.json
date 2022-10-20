@@ -2,17 +2,17 @@
   "users": [
       {
         "user" : "Master",
-        "pws"  : "12345"
+        "pws"  : "abacaxi"
       },
       
       {
         "user" : "Marcelo",
-        "pws"  : "senha"
+        "pws"  : "nevascaranga"
       },
 
       {
         "user" : "Gustavo",
-        "pws"  : "password"
+        "pws"  : "morango"
       }
   ] 
 }
