@@ -16,23 +16,25 @@ main{
 /* MENU LATERAL */
 
 nav{
-    width: 30%;
+    width: 25%;
     border-right: 1px solid gray;
-    font-family: Verdana, Tahoma, sans-serif;
-}
-
-nav > ul{
+    font-family: Tahoma, sans-serif;
     align-items: center;
 }
 
-nav > ul > li{
+nav ul li{
     display: flex;
     align-items: center;
     padding: 10px;
-    cursor: pointer;
 }
 
-nav > ul > li.icons{
+nav ul li:hover{
+    cursor: pointer;
+    color: white;
+    background-color: black;
+}
+
+nav ul li.icons{
     padding-right: 5px;
 }
 
@@ -41,6 +43,9 @@ nav > ul > li.icons{
 
 fieldset{
     background-color: white;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
 }
 
 fieldset#clientsFieldset{
@@ -49,8 +54,6 @@ fieldset#clientsFieldset{
     width: 350px;
     height: 190px;
     border-radius: 3px;
-    position: relative;
-    left: 5%;
 }
 
 fieldset > legend{
@@ -138,6 +141,11 @@ fieldset > form > div > div#subOrders{
     flex-direction: row;
 }
 
+/* DISPLAY DOS FIELDSETS */
+
+fieldset.hidden{
+    display: none;
+}
 
 /* MENU PRODUTOS*/
 
@@ -147,8 +155,6 @@ fieldset#productsFieldset{
     width: 350px;
     height: 225px;
     border-radius: 3px;
-    position: relative;
-    left: 5%;
 }
 
 
@@ -160,8 +166,6 @@ fieldset#ordersFieldset{
     width: 500px;
     height: 285px;
     border-radius: 3px;
-    position: relative;
-    left: 5%;
 }
 
 fieldset > form > div#ordersDiv{
