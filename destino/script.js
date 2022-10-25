@@ -1,7 +1,7 @@
 import { clientes } from "../modules/clientes.js";
 import { produtos } from "../modules/produtos.js";
 
-// Funcional Clientes
+// Mostrar Clientes
 var codigoCliente = 1;
 
 function showClients(){
@@ -37,7 +37,6 @@ setaDireita.addEventListener('click', function(){
     showClients();
 })
 
-
 // Seta Esquerda
 let setaEsquerda = document.getElementById('leftArrow');
 setaEsquerda.addEventListener('click', function(){
@@ -46,22 +45,36 @@ setaEsquerda.addEventListener('click', function(){
 })
 
 
-// Botão Novo Cliente
-let botaoNovoCliente = document.getElementById('newClientButton');
-botaoNovoCliente.addEventListener('click', function(){
+// Função Novo Cliente
+function newClientFunc(){
     let valorNovoCliente = clientes.length + 1;
     document.getElementById('clientCodeInput').value = valorNovoCliente;
     document.getElementById('clientName').value  = "";
     document.getElementById('signUpDate').value  = "";
-})
+}
+
+
+// Botão Novo Cliente
+let botaoNovoCliente = document.getElementById('newClientButton');
+botaoNovoCliente.addEventListener('click', newClientFunc);
 
 
 // Botão Salvar Cliente
-// let botaoSalvarCliente = document.getElementById('saveClientBtn');
-// botaoSalvarCliente.addEventListener('click', function(){
+let botaoSalvarCliente = document.getElementById('saveClientBtn');
+botaoSalvarCliente.addEventListener('click', function(){
+    let newClientObject = {
+        "codCliente":"",
+        "nomeCliente": "",
+        "dataCadCli":"",
+    };
+    newClientObject.codCliente = parseInt(document.getElementById('clientCodeInput').value);
+    newClientObject.nomeCliente = document.getElementById('clientName').value;
+    newClientObject.dataCadCli = document.getElementById('signUpDate').value;
 
-// })
+    clientes.push(newClientObject);
 
+    newClientFunc();
+})
 
 // Botão X
 let xButton = document.querySelectorAll('.closeBtn');
@@ -71,7 +84,6 @@ for(let xElement of xButton){
         xElement.parentElement.parentElement.parentElement.style.display = 'none';
     })
 }
-
 
 // BOTÕES LATERAIS //
 // Botão Clientes
@@ -122,5 +134,3 @@ function clearAll(){
         elementoMainMenu.style.display = 'none';
     }
 }
-
-// Botões Arrows
