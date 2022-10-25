@@ -1,3 +1,4 @@
+// Importação de dados
 import { clientes } from "../modules/clientes.js";
 import { produtos } from "../modules/produtos.js";
 
