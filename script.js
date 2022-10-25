@@ -1,5 +1,5 @@
 var validarLogin = async function(){
-    let dadosFetch = await fetch('/json/usuario.json');
+    let dadosFetch = await fetch('/desafios/desafio_js_pagina-login/usuario.json');
     let dadosJSON = await dadosFetch.json();
 
     var user = document.getElementById('usuario').value;
@@ -8,13 +8,12 @@ var validarLogin = async function(){
     var valor = 0;
 
     for (let arrays of dadosJSON.users){
-
         if(user == arrays.user && pass == arrays.pws){
             valor =+ 1;
         }
     }
     if(valor == 1){
-        document.getElementById('form').action = 'destino/index.html';
+        document.getElementById('form').action = '/desafios/desafio_js_pagina-login/destino/index.html';
         document.getElementById('form').submit();
         valor = 0;
     }

@@ -10,137 +10,135 @@
 </head>
 
 <body>
+    <main>
+        <!-- MENU LATERAL -->
+        <nav class="flex">
+            <ul>
+                <li id="clientsBtn" class="sideBtn"><span class="flex icons material-symbols-outlined">group</span>Clientes</li>
+                <li id="productsBtn" class="sideBtn"><span class="flex icons material-symbols-outlined">shopping_bag</span>Produtos</li>
+                <li id="ordersBtn" class="sideBtn"><span class="flex icons material-symbols-outlined">shopping_cart</span>Pedidos</li>
+            </ul>
+        </nav>
 
-        <main>
-            <!-- MENU LATERAL -->
-            <nav class="flex">
-                <ul>
-                    <li id="clientsBtn" class="sideBtn"><span class="flex icons material-symbols-outlined">group</span>Clientes</li>
-                    <li id="productsBtn" class="sideBtn"><span class="flex icons material-symbols-outlined">shopping_bag</span>Produtos</li>
-                    <li id="ordersBtn" class="sideBtn"><span class="flex icons material-symbols-outlined">shopping_cart</span>Pedidos</li>
-                </ul>
-            </nav>
+        <!-- MENU DOS CLIENTES -->
+        <fieldset id="clientsFieldset" class="flex mainMenus hidden">
+            <legend>CLIENTES</legend>
+            <form id="clientForm" class="flex" method="post" name="clientForms">
 
-            <!-- MENU DOS CLIENTES -->
-            <fieldset id="clientsFieldset" class="flex mainMenus hidden">
-                <legend>Clientes</legend>
-                <form id="clientForm" class="flex" method="post" name="clientForms">
+                <!-- BOTÃO FECHAR (CLIENTES) -->
+                <div class="flex divButton">
+                    <input class="closeBtn" type="button" value="x"> 
+                </div>
 
-                    <!-- BOTÃO FECHAR (CLIENTES) -->
-                    <div class="flex divButton">
-                        <input class="closeBtn" type="button" value="x"> 
+                <div id="clientsInputs" class="all_inputs flex">
+                    <label id="clientCodeLabel" class="flex" for="clientCode">Código</label>
+                    <input id="clientCodeInput" class="flex" type="text" name="clientCode" value="" disabled>
+                        
+                    <label id="clientLabel" class="flex" for="clientName">Nome</label>
+                    <input id="clientName" class="flex" type="text" name="clientName" value="">
+
+                    <label id="labelData" class="flex" for="signUpDate" >Data Cadastro</label>
+                    <input id="signUpDate" class="flex" type="text" name="signUpDate" value="">
+                </div>
+
+                <div id="clientsButtons" class="allButtons flex">
+                    <div id="arrows" class="flex">
+                        <input id="leftArrow" class="arw flex" type="button" name="leftArrow" value="<">
+                        <input id="rightArrow" class="arw flex" type="button" name="rightArrow" value=">">
                     </div>
-
-                    <div id="clientsInputs" class="all_inputs flex">
-                        <label id="clientCodeLabel" class="flex" for="clientCode">Código</label>
-                        <input id="clientCodeInput" class="flex" type="text" name="clientCode" value="">
-                            
-                        <label id="clientLabel" class="flex" for="clientName">Nome</label>
-                        <input id="clientName" class="flex" type="text" name="clientName" value="" disabled>
-
-                        <label id="labelData" class="flex" for="signUpDate" >Data Cadastro</label>
-                        <input id="signUpDate" class="flex" type="text" name="signUpDate" value="" disabled>
+                    <div id="buttons" class="flex">
+                        <input id="newClientButton" class="flex newButton" type="button" name="newButton" value="Novo">
+                        <input id="saveClientBtn" class="flex saveButton" type="button" name="saveButton" value="Salvar">
                     </div>
+                </div>
+            </form>
+        </fieldset>
 
-                    <div id="clientsButtons" class="allButtons flex">
-                        <div id="arrows" class="flex">
-                            <input id="leftArrow" class="arw flex" type="submit" name="leftArrow" value="<">
-                            <input id="rightArrow" class="arw flex" type="submit" name="rightArrow" value=">">
-                        </div>
-                        <div id="buttons" class="flex">
-                            <input id="newButton" class="flex" type="submit" name="newButton" value="Novo">
-                            <input id="saveButton" class="flex" type="submit" name="saveButton" value="Salvar">
-                        </div>
+        <!-- MENU DOS PRODUTOS -->
+        <fieldset id="productsFieldset" class="flex mainMenus hidden">
+            <legend>PRODUTOS</legend>
+            <form id="productsForm" class="flex" method="post" name="productsForms">
+                <div class="flex divButton">
+                    <input class="closeBtn" type="button" value="x">
+                </div>
+
+                <div id="productsInputs" class="all_inputs flex">
+                    <label id="productCodeLabel" class="flex" for="productCode">Código</label>
+                    <input id="productCodeInput" class="flex" type="text" name="productCode" value="">
+                        
+                    <label id="descriptionLabel" class="flex" for="description">Descrição</label>
+                    <input id="descriptionInput" class="flex" type="text" name="description" value="" disabled>
+
+                    <label id="priceLabel" class="flex" for="priceInput" >Preço</label>
+                    <input id="priceInput" class="flex" type="text" name="priceInput" value="" disabled>
+
+                    <label id="quantityLabel" class="flex" for="quantity" >Quantidade</label>
+                    <input id="quantityInput" class="flex" type="text" name="quantity" value="" disabled>
+                </div>
+                <div id="productsButtons" class="allButtons flex">
+                    <div id="arrows" class="flex">
+                        <input id="leftArrow" class="arw flex" type="submit" name="leftArrow" value="<">
+                        <input id="rightArrow" class="arw flex" type="submit" name="rightArrow" value=">">
                     </div>
-                </form>
-            </fieldset>
-
-            <!-- MENU DOS PRODUTOS -->
-            <fieldset id="productsFieldset" class="flex mainMenus hidden">
-                <legend>Produtos</legend>
-                <form id="productsForm" class="flex" method="post" name="productsForms">
-                    <div class="flex divButton">
-                        <input class="closeBtn" type="button" value="x">
+                    <div id="buttons" class="flex">
+                        <input id="newProductButton" class="flex newButton" type="submit" name="newButton" value="Novo">
+                        <input id="saveProductsBtn" class="flex saveButton" type="submit" name="saveButton" value="Salvar">
                     </div>
+                </div>
+            </form>
+        </fieldset>
 
-                    <div id="productsInputs" class="all_inputs flex">
-                        <label id="productCodeLabel" class="flex" for="productCode">Código</label>
-                        <input id="productCodeInput" class="flex" type="text" name="productCode" value="">
-                            
-                        <label id="descriptionLabel" class="flex" for="description">Descrição</label>
-                        <input id="descriptionInput" class="flex" type="text" name="description" value="" disabled>
+        <!-- MENU DOS PEDIDOS -->
+        <fieldset id="ordersFieldset" class="flex mainMenus hidden">
+            <legend>PEDIDOS</legend>
+            <form id="ordersForm" class="flex" method="post" name="ordersForm">
+                <div class="flex divButton">
+                    <input class="closeBtn" type="button" value="x">
+                </div>
 
-                        <label id="priceLabel" class="flex" for="priceInput" >Preço</label>
-                        <input id="priceInput" class="flex" type="text" name="priceInput" value="" disabled>
+                <div id="ordersDiv" class="divInputs flex">
+                    <label id="ordersCodeLabel" class="flex" for="ordersCodeInput">Código do Cliente</label>
+                    <input id="ordersCodeInput" class="flex" type="text" name="ordersCodeInput" value="">
+                        
+                    <label id="ordersClientLabel" class="flex" for="ordersClientInput">Cliente</label>
+                    <input id="ordersClientInput" class="flex" type="text" name="ordersClientInput" value="" disabled>
+                </div>
 
-                        <label id="quantityLabel" class="flex" for="quantity" >Quantidade</label>
-                        <input id="quantityInput" class="flex" type="text" name="quantity" value="" disabled>
+                <div id="locateProducts" class="flex">
+                    <legend>Localizar Produto</legend>
+                    <div id="locateIds">
+                        <input id="locateCode" class="flex" type="text" name="priceInput" value="" disabled>
+                        <input id="locateName" class="flex" type="text" name="quantity" value="" disabled>
+                        <input id="locatePriceProd" class="flex" type="text" name="quantity" value="" disabled>
+                        <input id="locateQtty" class="flex" type="text" name="quantity" value="" disabled>
+                        <input id="locateButton" class="flex" type="submit" name="leftArrow" value="Lançar Pedido">
                     </div>
-                    <div id="productsButtons" class="allButtons flex">
-                        <div id="arrows" class="flex">
-                            <input id="leftArrow" class="arw flex" type="submit" name="leftArrow" value="<">
-                            <input id="rightArrow" class="arw flex" type="submit" name="rightArrow" value=">">
-                        </div>
-                        <div id="buttons" class="flex">
-                            <input id="newButton" class="flex" type="submit" name="newButton" value="Novo">
-                            <input id="saveButton" class="flex" type="submit" name="saveButton" value="Salvar">
-                        </div>
-                    </div>
-                </form>
-            </fieldset>
+                </div>
 
-            <!-- MENU DOS PEDIDOS -->
-            <fieldset id="ordersFieldset" class="flex mainMenus hidden">
-                <legend>Pedidos</legend>
-                <form id="ordersForm" class="flex" method="post" name="ordersForm">
-                    <div class="flex divButton">
-                        <input class="closeBtn" type="button" value="x">
+                <div id="ordersItem" class="flex">
+                    <legend>Itens do Pedido</legend>
+                    <div id="subOrders" class="flex">
+                        <p class="pTitle">Item</p>
+                        <p class="pDescrip">Descrição</p>
+                        <p class="pPrice">Preço</p>
+                        <p class="pQtty">Qtde</p>
+                        <p class="pSubTotal">SubTotal</p>
                     </div>
+                    <div id="ordersValue" class="flex">
+                        <p class="pTitle">-</p>
+                        <p class="pDescrip">-</p>
+                        <p class="pPrice">-</p>
+                        <p class="pQtty">-</p>
+                        <p class="pSubTotal">-</p>
+                    </div>
+                </div>
+                <div id="totalPrice" class="flex">
+                    <input type="text" name="totalPrice" id="totalPriceValue" class="flex" value="R$ -" disabled>
+                </div>
+            </form>
+        </fieldset>
 
-                    <div id="ordersDiv" class="divInputs flex">
-                        <label id="ordersCodeLabel" class="flex" for="ordersCodeInput">Código do Cliente</label>
-                        <input id="ordersCodeInput" class="flex" type="text" name="ordersCodeInput" value="">
-                            
-                        <label id="ordersClientLabel" class="flex" for="ordersClientInput">Cliente</label>
-                        <input id="ordersClientInput" class="flex" type="text" name="ordersClientInput" value="" disabled>
-                    </div>
-
-                    <div id="locateProducts" class="flex">
-                        <legend>Localizar Produto</legend>
-                        <div id="locateIds">
-                            <input id="locateCode" class="flex" type="text" name="priceInput" value="" disabled>
-                            <input id="locateName" class="flex" type="text" name="quantity" value="" disabled>
-                            <input id="locatePriceProd" class="flex" type="text" name="quantity" value="" disabled>
-                            <input id="locateQtty" class="flex" type="text" name="quantity" value="" disabled>
-                            <input id="locateButton" class="flex" type="submit" name="leftArrow" value="Lançar Pedido">
-                        </div>
-                    </div>
-
-                    <div id="ordersItem" class="flex">
-                        <legend>Itens do Pedido</legend>
-                        <div id="subOrders" class="flex">
-                            <p class="pTitle">Item</p>
-                            <p class="pDescrip">Descrição</p>
-                            <p class="pPrice">Preço</p>
-                            <p class="pQtty">Qtde</p>
-                            <p class="pSubTotal">SubTotal</p>
-                        </div>
-                        <div id="ordersValue" class="flex">
-                            <p class="pTitle">-</p>
-                            <p class="pDescrip">-</p>
-                            <p class="pPrice">-</p>
-                            <p class="pQtty">-</p>
-                            <p class="pSubTotal">-</p>
-                        </div>
-                    </div>
-                    <div id="totalPrice" class="flex">
-                        <input type="text" name="totalPrice" id="totalPriceValue" class="flex" value="R$ -" disabled>
-                    </div>
-                </form>
-            </fieldset>
-
-        </main>
-    </div>
-<script src="script.js"></script>
+    </main>
+<script type="module" src="script.js"></script>
 </body>
 </html>

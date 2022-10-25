@@ -13,6 +13,12 @@ main{
     height: 100vh;
 }
 
+body{
+    background-image: url(background-image-destino);
+    background-position: top;
+    background-size: cover;
+}
+
 /* MENU LATERAL */
 
 nav{
@@ -20,6 +26,7 @@ nav{
     border-right: 1px solid gray;
     font-family: Tahoma, sans-serif;
     align-items: center;
+    color: white;
 }
 
 nav ul li{
@@ -30,8 +37,8 @@ nav ul li{
 
 nav ul li:hover{
     cursor: pointer;
-    color: white;
-    background-color: black;
+    color: black;
+    background-color: white;
 }
 
 nav ul li.icons{
@@ -54,6 +61,8 @@ fieldset#clientsFieldset{
     width: 350px;
     height: 190px;
     border-radius: 3px;
+    background-color: rgb(21, 36, 69);
+    color: white;
 }
 
 fieldset > legend{
@@ -120,12 +129,12 @@ fieldset > form > div > div > input.arw{
     cursor: pointer;
 }
 
-fieldset > form > div > div > input#saveButton{
+fieldset > form > div > div > input.saveButton{
     background-color: green;
     cursor: pointer;
 }
 
-fieldset > form > div > div > input#newButton{
+fieldset > form > div > div > input.newButton{
     background-color: blue;
     cursor: pointer;
 }
@@ -155,6 +164,8 @@ fieldset#productsFieldset{
     width: 350px;
     height: 225px;
     border-radius: 3px;
+    background-color: rgb(21, 36, 69);
+    color: white;
 }
 
 
@@ -166,6 +177,8 @@ fieldset#ordersFieldset{
     width: 500px;
     height: 285px;
     border-radius: 3px;
+    background-color: rgb(21, 36, 69);
+    color: white;
 }
 
 fieldset > form > div#ordersDiv{
@@ -178,7 +191,7 @@ fieldset > form > div#ordersDiv{
 fieldset > form > div#locateProducts{
     display: flex;
     flex-direction: column;
-    border-top: 1px solid black;
+    border-top: 1px solid wheat;
     margin-bottom: 15px;
 }
 
@@ -231,13 +244,12 @@ fieldset > form > div > div > input#locateButton{
 fieldset > form > div#ordersItem{
     display: flex;
     flex-direction: column;
-    border-top: 1px solid black;
+    border-top: 1px solid wheat;
     justify-content: space-between;
 }
 
 fieldset > form > div > legend{
     font-weight: bold;
-    color: darkblue;
     margin-bottom: 10px;
 }
 

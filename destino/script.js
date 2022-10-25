@@ -1,5 +1,69 @@
-// Botão X
+import { clientes } from "../modules/clientes.js";
+import { produtos } from "../modules/produtos.js";
 
+// Funcional Clientes
+var codigoCliente = 1;
+
+function showClients(){
+    if(codigoCliente > clientes.length || codigoCliente <= 0){
+        defaultClientes();
+        alert('Código inexistente');
+    }
+    else{
+        for(let obj of clientes){
+            if(obj.codCliente == codigoCliente){
+            var nomeDoCliente = obj.nomeCliente;
+            var dataDeCadastro = obj.dataCadCli;
+            }
+        }
+        document.getElementById('clientCodeInput').value = codigoCliente;
+        document.getElementById('clientName').value  = nomeDoCliente;
+        document.getElementById('signUpDate').value  = dataDeCadastro;
+    }
+}
+
+// Definição Padrão
+function defaultClientes(){
+    codigoCliente = 1;
+    document.getElementById('clientCodeInput').value = clientes[0].codCliente;
+    document.getElementById('clientName').value = clientes[0].nomeCliente;
+    document.getElementById('signUpDate').value = clientes[0].dataCadCli;
+}
+
+// Seta Direita
+let setaDireita = document.getElementById('rightArrow');
+setaDireita.addEventListener('click', function(){
+    codigoCliente += 1;
+    showClients();
+})
+
+
+// Seta Esquerda
+let setaEsquerda = document.getElementById('leftArrow');
+setaEsquerda.addEventListener('click', function(){
+    codigoCliente -= 1;
+    showClients();
+})
+
+
+// Botão Novo Cliente
+let botaoNovoCliente = document.getElementById('newClientButton');
+botaoNovoCliente.addEventListener('click', function(){
+    let valorNovoCliente = clientes.length + 1;
+    document.getElementById('clientCodeInput').value = valorNovoCliente;
+    document.getElementById('clientName').value  = "";
+    document.getElementById('signUpDate').value  = "";
+})
+
+
+// Botão Salvar Cliente
+// let botaoSalvarCliente = document.getElementById('saveClientBtn');
+// botaoSalvarCliente.addEventListener('click', function(){
+
+// })
+
+
+// Botão X
 let xButton = document.querySelectorAll('.closeBtn');
 
 for(let xElement of xButton){
@@ -9,43 +73,54 @@ for(let xElement of xButton){
 }
 
 
-// Botões Laterais
+// BOTÕES LATERAIS //
+// Botão Clientes
+let botaoClientes = document.getElementById('clientsBtn');
 
-let sideButton = document.querySelectorAll('.sideBtn');
+botaoClientes.addEventListener('click', function(){
+    if(document.getElementById('clientsFieldset').style.display == 'flex'){
+        clearAll();
+    }
+    else{
+        clearAll();
+        document.getElementById('clientsFieldset').style.display = 'flex';
+    }
+    showClients();
+})
 
-for(let sideElement of sideButton){
-    sideElement.addEventListener('click', function(){
-        if(sideElement.id == 'productsBtn'){
-            if(document.getElementById('productsFieldset').style.display == 'none'){
-                document.getElementById('productsFieldset').style.display = 'flex';
-                document.getElementById('clientsFieldset').style.display = 'none';
-                document.getElementById('ordersFieldset').style.display = 'none';
-            }
-            else{
-                document.getElementById('productsFieldset').style.display = 'none';
-            }
-        }
-        else if(sideElement.id == 'clientsBtn'){
-            if(document.getElementById('clientsFieldset').style.display == 'none'){
-            document.getElementById('productsFieldset').style.display = 'none';
-            document.getElementById('clientsFieldset').style.display = 'flex';
-            document.getElementById('ordersFieldset').style.display = 'none';
-            }
-            else{
-                document.getElementById('clientsFieldset').style.display = 'none';
-            }
-        }
-        else if(sideElement.id == 'ordersBtn'){
-            if(document.getElementById('ordersFieldset').style.display == 'none'){
-                document.getElementById('productsFieldset').style.display = 'none';
-                document.getElementById('clientsFieldset').style.display = 'none';
-                document.getElementById('ordersFieldset').style.display = 'flex';
-            }
-            else{
-                document.getElementById('ordersFieldset').style.display = 'none';
-            }
-        }
-    })
+// Botão Produtos
+let botaoProdutos = document.getElementById('productsBtn');
+
+botaoProdutos.addEventListener('click', function(){
+    if(document.getElementById('productsFieldset').style.display == 'flex'){
+        clearAll();
+    }
+    else{
+        clearAll();
+        document.getElementById('productsFieldset').style.display = 'flex';
+    }
+})
+
+// Botão Pedidos
+let botaoPedidos = document.getElementById('ordersBtn');
+
+botaoPedidos.addEventListener('click', function(){
+    if(document.getElementById('ordersFieldset').style.display == 'flex'){
+        clearAll();
+    }
+    else{
+        clearAll();
+        document.getElementById('ordersFieldset').style.display = 'flex';
+    }
+})
+
+// Função Limpar
+function clearAll(){
+    let arrayMainMenus = document.querySelectorAll('.mainMenus');
+
+    for(let elementoMainMenu of arrayMainMenus){
+        elementoMainMenu.style.display = 'none';
+    }
 }
 
 // Botões Arrows
