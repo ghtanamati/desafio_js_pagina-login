@@ -60,7 +60,6 @@ function newClientFunc(){
 let botaoNovoCliente = document.getElementById('newClientButton');
 botaoNovoCliente.addEventListener('click', newClientFunc);
 
-
 // Botão Salvar Cliente
 let botaoSalvarCliente = document.getElementById('saveClientBtn');
 botaoSalvarCliente.addEventListener('click', function(){
@@ -72,9 +71,7 @@ botaoSalvarCliente.addEventListener('click', function(){
     newClientObject.codCliente = parseInt(document.getElementById('clientCodeInput').value);
     newClientObject.nomeCliente = document.getElementById('clientName').value;
     newClientObject.dataCadCli = document.getElementById('signUpDate').value;
-
     clientes.push(newClientObject);
-
     newClientFunc();
 })
 
@@ -90,7 +87,6 @@ for(let xElement of xButton){
 // BOTÕES LATERAIS //
 // Botão Clientes
 let botaoClientes = document.getElementById('clientsBtn');
-
 botaoClientes.addEventListener('click', function(){
     if(document.getElementById('clientsFieldset').style.display == 'flex'){
         clearAll();
@@ -104,7 +100,6 @@ botaoClientes.addEventListener('click', function(){
 
 // Botão Produtos
 let botaoProdutos = document.getElementById('productsBtn');
-
 botaoProdutos.addEventListener('click', function(){
     if(document.getElementById('productsFieldset').style.display == 'flex'){
         clearAll();
@@ -132,7 +127,6 @@ botaoPedidos.addEventListener('click', function(){
 // Função Limpar
 function clearAll(){
     let arrayMainMenus = document.querySelectorAll('.mainMenus');
-
     for(let elementoMainMenu of arrayMainMenus){
         elementoMainMenu.style.display = 'none';
     }
@@ -140,7 +134,6 @@ function clearAll(){
 
 // Mostrar Produtos
 var codigoProduto = 1;
-
 function showProducts(){
     if(codigoProduto > produtos.length || codigoProduto <= 0){
         defaultProdutos();
@@ -164,7 +157,6 @@ function showProducts(){
 // Definição Padrão - Produtos
 function defaultProdutos(){
     codigoProduto = 1;
-
     document.getElementById('productCodeInput').value = produtos[0].codProduto;
     document.getElementById('descriptionInput').value  = produtos[0].descProduto;
     document.getElementById('priceInput').value  = produtos[0].precoProduto;
@@ -243,41 +235,29 @@ inputCodigoProduto.addEventListener('blur', function(){
 })
 
 // Botão Lançar Pedido
-let botaoLancarPedido = document.getElementById('locateButton')
+let botaoLancarPedido = document.getElementById('locateButton');
 botaoLancarPedido.addEventListener('click', function(){
+    const childElmItem = document.createElement('p');
+    const childElmDescrip = document.createElement('p');
+    const childElmPrice = document.createElement('p');
+    const childElmQtty = document.createElement('p');
+    const childElmSubTotal = document.createElement('p');
+
     for(let obj of produtos){
         if(obj.codProduto == document.getElementById('locateCode').value){
+        
+            var itemPedido = document.getElementById('locateCode').value;
         var descricaoPedido = obj.descProduto;
         var precoPedido = obj.precoProduto;
+
+        console.log(itemPedido);
+        console.log(descricaoPedido);
+        console.log(precoPedido);
         }
     }
-    document.getElementById('locateName').appendChild()
-    document.getElementById('locatePriceProd').value = precoPedido;
+    document.getElementById('pItemValue').appendChild(childElmItem).textContent = itemPedido;
+    document.getElementById('pDescripValue').appendChild(childElmDescrip).textContent = descricaoPedido;
+    document.getElementById('pPriceValue').appendChild(childElmPrice).textContent = precoPedido;
+    document.getElementById('pQttyValue').appendChild(childElmQtty).textContent = document.getElementById('locateQtty').value;
+    document.getElementById('pSubTotalValue').appendChild(childElmSubTotal).textContent = precoPedido * document.getElementById('locateQtty').value;
 })
-
-// for(let p of produtos){
-//     const filhosLista = document.createElement('li');
-    
-//     for(listaP in p){
-//         if(listaP == 'preco'){
-//             listaProdutos.appendChild(filhosLista).setAttribute('data-preco', p[listaP]);
-//             valorParcial += p[listaP];
-//         }else{
-//             listaProdutos.appendChild(filhosLista).textContent = `${p[listaP]}`;
-//         }
-//     }
-// }
-
-
-// function(){
-
-//     const caixaProduto = document.querySelector('#produto');
-//     const botaoCadastrar = document.querySelector('#cadastrar');
-//     const myList = document.querySelector('#listaDeProdutos');
-
-//     cadastrar.addEventListener('click', function(){
-//         let createdList = document.createElement('li');
-//         myList.appendChild(createdList).setAttribute('class', 'listaDeFrutas');
-//         myList.appendChild(createdList).textContent = caixaProduto.value;
-//     })
-// }
