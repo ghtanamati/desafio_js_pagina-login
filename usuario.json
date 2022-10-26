@@ -1,18 +1,23 @@
 {
   "users": [
-      {
-        "user" : "Master",
-        "pws"  : "abacaxi"
-      },
-      
-      {
-        "user" : "Marcelo",
-        "pws"  : "nevascaranga"
-      },
+    {
+      "user" : "Master",
+      "pws"  : "abacaxi"
+    },
+    
+    {
+      "user" : "Marcelo",
+      "pws"  : "nevascaranga"
+    },
 
-      {
-        "user" : "Gustavo",
-        "pws"  : "morango"
-      }
-  ] 
+    {
+      "user" : "Gustavo",
+      "pws"  : "morango"
+    },
+    
+    {
+      "user" : "admin",
+      "pws"  : "senha"
+    }
+  ]
 }

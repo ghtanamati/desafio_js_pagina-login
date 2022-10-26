@@ -15,14 +15,14 @@ main{
 
 body{
     background-image: url(background-image-destino);
-    background-position: top;
+    background-position: center;
     background-size: cover;
 }
 
 /* MENU LATERAL */
 
 nav{
-    width: 25%;
+    width: 200px;
     border-right: 1px solid gray;
     font-family: Tahoma, sans-serif;
     align-items: center;
@@ -51,8 +51,8 @@ nav ul li.icons{
 fieldset{
     background-color: white;
     justify-content: center;
-    position: absolute;
-    left: 50%;
+    position: relative;
+    left: 200px;
 }
 
 fieldset#clientsFieldset{
@@ -191,7 +191,7 @@ fieldset > form > div#ordersDiv{
 fieldset > form > div#locateProducts{
     display: flex;
     flex-direction: column;
-    border-top: 1px solid wheat;
+    border-top: 1px solid white;
     margin-bottom: 15px;
 }
 
@@ -209,42 +209,38 @@ fieldset > form > div > div > input{
 fieldset > form > div > div > input#locateCode{
     width: 9%;
     color: black;
-    background-color: white;
-    border: 1px solid gray;
 }
 
 fieldset > form > div > div > input#locateName{
-    width: 30%;
-    color: black;
-    background-color: white;
-    border: 1px solid gray;
+    width: 33%;
+    color: gray;
+    background-color: lightgrey;
 }
 
 fieldset > form > div > div > input#locatePriceProd{
     width: 13%;
-    color: black;
-    background-color: white;
-    border: 1px solid gray;
+    color: gray;
+    background-color: lightgrey;
 }
 
 fieldset > form > div > div > input#locateQtty{
     width: 13%;
     color: black;
     background-color: white;
-    border: 1px solid gray;
 }
 
 fieldset > form > div > div > input#locateButton{
-    width: 35%;
+    width: 31%;
     color: black;
-    border: 1px solid gray;
+    font-weight: bold;
+    background-color: yellowgreen;
     cursor: pointer;
 }
 
 fieldset > form > div#ordersItem{
     display: flex;
     flex-direction: column;
-    border-top: 1px solid wheat;
+    border-top: 1px solid white;
     justify-content: space-between;
 }
 

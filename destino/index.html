@@ -43,8 +43,8 @@
 
                 <div id="clientsButtons" class="allButtons flex">
                     <div id="arrows" class="flex">
-                        <input id="leftArrow" class="arw flex" type="button" name="leftArrow" value="<">
-                        <input id="rightArrow" class="arw flex" type="button" name="rightArrow" value=">">
+                        <input id="leftArrowCli" class="arw flex" type="button" name="leftArrow" value="<">
+                        <input id="rightArrowCli" class="arw flex" type="button" name="rightArrow" value=">">
                     </div>
                     <div id="buttons" class="flex">
                         <input id="newClientButton" class="flex newButton" type="button" name="newButton" value="Novo">
@@ -64,25 +64,25 @@
 
                 <div id="productsInputs" class="all_inputs flex">
                     <label id="productCodeLabel" class="flex" for="productCode">Código</label>
-                    <input id="productCodeInput" class="flex" type="text" name="productCode" value="">
+                    <input id="productCodeInput" class="flex" type="text" name="productCode" value="" disabled>
                         
                     <label id="descriptionLabel" class="flex" for="description">Descrição</label>
-                    <input id="descriptionInput" class="flex" type="text" name="description" value="" disabled>
+                    <input id="descriptionInput" class="flex" type="text" name="description" value="">
 
                     <label id="priceLabel" class="flex" for="priceInput" >Preço</label>
-                    <input id="priceInput" class="flex" type="text" name="priceInput" value="" disabled>
+                    <input id="priceInput" class="flex" type="text" name="priceInput" value="">
 
                     <label id="quantityLabel" class="flex" for="quantity" >Quantidade</label>
-                    <input id="quantityInput" class="flex" type="text" name="quantity" value="" disabled>
+                    <input id="quantityInput" class="flex" type="text" name="quantity" value="">
                 </div>
                 <div id="productsButtons" class="allButtons flex">
                     <div id="arrows" class="flex">
-                        <input id="leftArrow" class="arw flex" type="submit" name="leftArrow" value="<">
-                        <input id="rightArrow" class="arw flex" type="submit" name="rightArrow" value=">">
+                        <input id="leftArrowProd" class="arw flex" type="button" name="leftArrow" value="<">
+                        <input id="rightArrowProd" class="arw flex" type="button" name="rightArrow" value=">">
                     </div>
                     <div id="buttons" class="flex">
-                        <input id="newProductButton" class="flex newButton" type="submit" name="newButton" value="Novo">
-                        <input id="saveProductsBtn" class="flex saveButton" type="submit" name="saveButton" value="Salvar">
+                        <input id="newProductButton" class="flex newButton" type="button" name="newButton" value="Novo">
+                        <input id="saveProductsBtn" class="flex saveButton" type="button" name="saveButton" value="Salvar">
                     </div>
                 </div>
             </form>
@@ -107,11 +107,11 @@
                 <div id="locateProducts" class="flex">
                     <legend>Localizar Produto</legend>
                     <div id="locateIds">
-                        <input id="locateCode" class="flex" type="text" name="priceInput" value="" disabled>
-                        <input id="locateName" class="flex" type="text" name="quantity" value="" disabled>
-                        <input id="locatePriceProd" class="flex" type="text" name="quantity" value="" disabled>
-                        <input id="locateQtty" class="flex" type="text" name="quantity" value="" disabled>
-                        <input id="locateButton" class="flex" type="submit" name="leftArrow" value="Lançar Pedido">
+                        <input id="locateCode" class="flex" type="text" name="locateCode" value="">
+                        <input id="locateName" class="flex" type="text" name="locateName" value="" disabled>
+                        <input id="locatePriceProd" class="flex" type="text" name="locatePriceProd" value="" disabled>
+                        <input id="locateQtty" class="flex" type="text" name="locateQtty" value="">
+                        <input id="locateButton" class="flex" type="button" name="locateButton" value="Lançar Pedido">
                     </div>
                 </div>
 
@@ -125,11 +125,11 @@
                         <p class="pSubTotal">SubTotal</p>
                     </div>
                     <div id="ordersValue" class="flex">
-                        <p class="pTitle">-</p>
-                        <p class="pDescrip">-</p>
-                        <p class="pPrice">-</p>
-                        <p class="pQtty">-</p>
-                        <p class="pSubTotal">-</p>
+                        <p id="pTitleValue" class="pTitle" p>
+                        <p id="pDescripValue" class="pDescrip"></p>
+                        <p id="pPriceValue" class="pPrice"></p>
+                        <p id="pQttyValue" class="pQtty"></p>
+                        <p id="pSubTotalValue"class="pSubTotal"></p>
                     </div>
                 </div>
                 <div id="totalPrice" class="flex">
@@ -137,7 +137,6 @@
                 </div>
             </form>
         </fieldset>
-
     </main>
 <script type="module" src="script.js"></script>
 </body>
