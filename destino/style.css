@@ -6,36 +6,44 @@
     box-sizing: border-box;
 }
 
-
-main{
-    display: flex;
-    width: 100%;
-    height: 100vh;
-}
-
 body{
     background-image: url(background-image-destino);
-    background-position: center;
+    background-position: top;
     background-size: cover;
+    display: flex;
+    flex-direction: row;
 }
+
+header{
+    width: 20%;
+    border-right: 0.1px solid white;
+}
+
+main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 /* MENU LATERAL */
 
-nav{
-    width: 200px;
-    border-right: 1px solid gray;
+header > nav{
     font-family: Tahoma, sans-serif;
     align-items: center;
     color: white;
 }
 
-nav > ul > li{
+header > nav > ul > li{
     display: flex;
     align-items: center;
     padding: 10px;
 }
 
-nav > ul > li:hover{
+header > nav > ul > li:hover{
+    height: 105%;
     cursor: pointer;
     color: black;
     background-color: white;
@@ -45,24 +53,45 @@ nav > ul > li.icons{
     padding-right: 5px;
 }
 
+/* LAYOUT PADRÃO DOS FIELDSETS */
 
-/* MENU CLIENTES*/
-
-fieldset{
-    background-color: white;
-    justify-content: center;
-    position: relative;
-    left: 200px;
+fieldset.hidden{
+    display: none;
 }
 
-fieldset#clientsFieldset{
+fieldset{
+    height: max-content;
     font-family: Tahoma, sans-serif;
     font-size: 13px;
-    width: 350px;
-    height: 190px;
     border-radius: 3px;
-    background-color: rgb(21, 36, 69);
+    background-color: rgb(21, 36, 69, .9);
     color: white;
+    display: flex;
+    justify-content: center;
+}
+
+fieldset#clientsFieldset, fieldset#productsFieldset{
+    width: 400px;
+}
+
+fieldset#ordersFieldset{
+    width: 550px;
+}
+
+input{
+    font-size: medium;
+}
+
+/* MENU CLIENTES E PRODUTOS*/
+
+fieldset > form{
+    width: 95%;
+    padding: 2px;
+    margin-bottom: 5px;
+}
+
+fieldset > form > div > input{
+    margin-bottom: 5px;
 }
 
 fieldset > legend{
@@ -83,11 +112,6 @@ div.divButton{
     justify-content: right;
 }
 
-fieldset > form {
-    width: 100%;
-    padding: 10px;
-}
-
 fieldset > form > div.all_inputs{
     display: flex;
     flex-direction: column;
@@ -98,6 +122,7 @@ fieldset > form > div.allButtons{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 5px;
 }
 
 fieldset > form > div > div#arrows{
@@ -148,38 +173,10 @@ fieldset > form > div#ordersItem{
 fieldset > form > div > div#subOrders{
     display: flex;
     flex-direction: row;
+    justify-content: right;
 }
-
-/* DISPLAY DOS FIELDSETS */
-
-fieldset.hidden{
-    display: none;
-}
-
-/* MENU PRODUTOS*/
-
-fieldset#productsFieldset{
-    font-family: Tahoma, sans-serif;
-    font-size: 13px;
-    width: 350px;
-    height: 225px;
-    border-radius: 3px;
-    background-color: rgb(21, 36, 69);
-    color: white;
-}
-
 
 /* MENU PEDIDOS*/
-
-fieldset#ordersFieldset{
-    font-family: Tahoma, sans-serif;
-    font-size: 13px;
-    width: 500px;
-    height: 285px;
-    border-radius: 3px;
-    background-color: rgb(21, 36, 69);
-    color: white;
-}
 
 fieldset > form > div#ordersDiv{
     display: flex;
@@ -200,10 +197,6 @@ fieldset > form > div > div#locateIds{
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-}
-
-fieldset > form > div > div > input{
-    height: 23px;
 }
 
 fieldset > form > div > div > input#locateCode{
@@ -234,7 +227,12 @@ fieldset > form > div > div > input#locateButton{
     color: black;
     font-weight: bold;
     background-color: yellowgreen;
+}
+
+fieldset > form > div > div > input#locateButton:hover{
+    background-color: yellow;
     cursor: pointer;
+    transition: all 0.6s;
 }
 
 fieldset > form > div#ordersItem{
@@ -249,7 +247,7 @@ fieldset > form > div > legend{
     margin-bottom: 10px;
 }
 
-div#subOrders{
+fieldset > form > div > div#subOrders{
     display: flex;
     flex-direction: row;
     font-weight: bold;
@@ -258,34 +256,35 @@ div#subOrders{
 fieldset > form > div > div#ordersValue{
     display: flex;
     flex-direction: row;
+    justify-content: right;
 }
 
-div#totalPrice{
+fieldset > form > div#totalPrice{
     display: flex;
     justify-content: right;
 }
 
-p.pItem, ul.pItem{
-    width: 15%;
+p.pItem, ul.ulItem{
+    width: 13%;
 }
 
-p.pDescrip, ul.pDescrip{
+p.pDescrip, ul.ulDescrip{
     width: 44%;
 }
 
-p.pPrice, ul.pPrice{
+p.pPrice, ul.ulPrice{
     width: 13%;
 }
 
-p.pQtty, ul.pQtty{
+p.pQtty, ul.ulQtty{
     width: 13%;
 }
 
-p.pSubTotal, ul.pSubTotal{
+p.pSubTotal, ul.ulSubTotal{
     width: 15%;
 }
 
-input#totalPriceValue{
+fieldset > form > div > input#totalPriceValue{
     background-color: lightgray;
     width: 15%;
     color: darkred;

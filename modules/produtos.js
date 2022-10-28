@@ -16,7 +16,14 @@ export const produtos = [
   {
     "codProduto": 3,
     "descProduto": "Lapiseira",
-    "precoProduto": 6.50,
+    "precoProduto": 12.50,
+    "qtdEstoqueProd": 15,
+  },
+
+  {
+    "codProduto": 4,
+    "descProduto": "Borracha",
+    "precoProduto": 4.50,
     "qtdEstoqueProd": 15,
   },
 ]

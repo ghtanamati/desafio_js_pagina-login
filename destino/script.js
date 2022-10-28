@@ -32,14 +32,14 @@ function defaultClientes(){
 }
 
 // Seta Direita - Clientes
-let setaDireitaCli = document.getElementById('rightArrowCli');
+const setaDireitaCli = document.getElementById('rightArrowCli');
 setaDireitaCli.addEventListener('click', function(){
     codigoCliente += 1;
     showClients();
 })
 
 // Seta Esquerda - Clientes
-let setaEsquerdaCli = document.getElementById('leftArrowCli');
+const setaEsquerdaCli = document.getElementById('leftArrowCli');
 setaEsquerdaCli.addEventListener('click', function(){
     codigoCliente -= 1;
     showClients();
@@ -57,11 +57,11 @@ function newClientFunc(){
 }
 
 // Botão Novo Cliente
-let botaoNovoCliente = document.getElementById('newClientButton');
+const botaoNovoCliente = document.getElementById('newClientButton');
 botaoNovoCliente.addEventListener('click', newClientFunc);
 
 // Botão Salvar Cliente
-let botaoSalvarCliente = document.getElementById('saveClientBtn');
+const botaoSalvarCliente = document.getElementById('saveClientBtn');
 botaoSalvarCliente.addEventListener('click', function(){
     let newClientObject = {
         "codCliente":"",
@@ -76,7 +76,7 @@ botaoSalvarCliente.addEventListener('click', function(){
 })
 
 // Botão X
-let xButton = document.querySelectorAll('.closeBtn');
+const xButton = document.querySelectorAll('.closeBtn');
 
 for(let xElement of xButton){
     xElement.addEventListener('click', function(){
@@ -86,47 +86,46 @@ for(let xElement of xButton){
 
 // BOTÕES LATERAIS //
 // Botão Clientes
-let botaoClientes = document.getElementById('clientsBtn');
+const botaoClientes = document.getElementById('clientsBtn');
 botaoClientes.addEventListener('click', function(){
     if(document.getElementById('clientsFieldset').style.display == 'flex'){
-        clearAll();
+        clearMenus();
     }
     else{
-        clearAll();
+        clearMenus();
         document.getElementById('clientsFieldset').style.display = 'flex';
     }
     showClients();
 })
 
 // Botão Produtos
-let botaoProdutos = document.getElementById('productsBtn');
+const botaoProdutos = document.getElementById('productsBtn');
 botaoProdutos.addEventListener('click', function(){
     if(document.getElementById('productsFieldset').style.display == 'flex'){
-        clearAll();
+        clearMenus();
     }
     else{
-        clearAll();
+        clearMenus();
         document.getElementById('productsFieldset').style.display = 'flex';
     }
     showProducts();
 })
 
 // Botão Pedidos
-let botaoPedidos = document.getElementById('ordersBtn');
-
+const botaoPedidos = document.getElementById('ordersBtn');
 botaoPedidos.addEventListener('click', function(){
     if(document.getElementById('ordersFieldset').style.display == 'flex'){
-        clearAll();
+        clearMenus();
     }
     else{
-        clearAll();
+        clearMenus();
         document.getElementById('ordersFieldset').style.display = 'flex';
     }
 })
 
-// Função Limpar
-function clearAll(){
-    let arrayMainMenus = document.querySelectorAll('.mainMenus');
+// Função Limpar Menus
+function clearMenus(){
+    const arrayMainMenus = document.querySelectorAll('.mainMenus');
     for(let elementoMainMenu of arrayMainMenus){
         elementoMainMenu.style.display = 'none';
     }
@@ -164,14 +163,14 @@ function defaultProdutos(){
 }
 
 // Seta Direita - Produtos
-let setaDireitaProd = document.getElementById('rightArrowProd');
+const setaDireitaProd = document.getElementById('rightArrowProd');
 setaDireitaProd.addEventListener('click', function(){
     codigoProduto += 1;
     showProducts();
 })
 
 // Seta Esquerda - Produtos
-let setaEsquerdaProd = document.getElementById('leftArrowProd');
+const setaEsquerdaProd = document.getElementById('leftArrowProd');
 setaEsquerdaProd.addEventListener('click', function(){
     codigoProduto -= 1;
     showProducts();
@@ -187,31 +186,50 @@ function newProductFunc(){
 }
 
 // Botão Novo Produto
-let botaoNovoProduto = document.getElementById('newProductButton');
+const botaoNovoProduto = document.getElementById('newProductButton');
 botaoNovoProduto.addEventListener('click', newProductFunc);
 
 // Botão Salvar Produto
-let botaoSalvarProduto = document.getElementById('saveProductsBtn');
+const botaoSalvarProduto = document.getElementById('saveProductsBtn');
 botaoSalvarProduto.addEventListener('click', function(){
-    let newProductObject = {
-        "codProduto": "",
-        "descProduto": "",
-        "precoProduto": "",
-        "qtdEstoqueProd": "",
-    };
-    newProductObject.codProduto = parseInt(document.getElementById('productCodeInput').value);
-    newProductObject.descProduto = document.getElementById('descriptionInput').value;
-    newProductObject.precoProduto = parseFloat(document.getElementById('priceInput').value);
-    newProductObject.qtdEstoqueProd = parseInt(document.getElementById('quantityInput').value);
+    let controlVarUm = 0;
+    let controlVarDois = 0;
+    const varFieldset = document.getElementById('productsFieldset');
 
-    produtos.push(newProductObject);
-
-    newProductFunc();
+    for(let elemento of varFieldset.querySelectorAll('.input')){
+        if (elemento.value == ''){  
+            controlVarUm += 1;
+        }
+    }
+    if(controlVarUm !== 0){
+        alert('Preencha todos os campos');
+    }
+    for(let obj of produtos){
+        if(obj.codProduto == parseInt(document.getElementById('productCodeInput').value)){
+            alert('Código já cadastrado');
+            controlVarDois = 1;
+        }
+    }
+    if(controlVarUm == 0 && controlVarDois !== 1){
+        let newProductObject = {
+            "codProduto": "",
+            "descProduto": "",
+            "precoProduto": "",
+            "qtdEstoqueProd": "",
+        };
+        newProductObject.codProduto = parseInt(document.getElementById('productCodeInput').value);
+        newProductObject.descProduto = document.getElementById('descriptionInput').value;
+        newProductObject.precoProduto = parseFloat(document.getElementById('priceInput').value);
+        newProductObject.qtdEstoqueProd = parseInt(document.getElementById('quantityInput').value);
+        produtos.push(newProductObject);
+        alert('Produto cadastrado com sucesso');
+        newProductFunc();
+    }
 })
 
 // TELA DE PEDIDOS
 // Mostrar Nome dos Clientes
-let inputCodigoCliente = document.getElementById('ordersCodeInput');
+const inputCodigoCliente = document.getElementById('ordersCodeInput');
 inputCodigoCliente.addEventListener('blur', function(){
     for(let obj of clientes){
         if(obj.codCliente == document.getElementById('ordersCodeInput').value){
@@ -222,7 +240,7 @@ inputCodigoCliente.addEventListener('blur', function(){
 })
 
 // Mostrar Descrição dos Produtos
-let inputCodigoProduto = document.getElementById('locateCode');
+const inputCodigoProduto = document.getElementById('locateCode');
 inputCodigoProduto.addEventListener('blur', function(){
     for(let obj of produtos){
         if(obj.codProduto == document.getElementById('locateCode').value){
@@ -231,33 +249,48 @@ inputCodigoProduto.addEventListener('blur', function(){
         }
     }
     document.getElementById('locateName').value = descricaoPedido;
-    document.getElementById('locatePriceProd').value = precoPedido;
+    document.getElementById('locatePriceProd').value = precoPedido.toFixed(2);
 })
 
 // Botão Lançar Pedido
-let botaoLancarPedido = document.getElementById('locateButton');
+const botaoLancarPedido = document.getElementById('locateButton');
+const listaDePedidos = [];
 botaoLancarPedido.addEventListener('click', function(){
-    const childElmItem = document.createElement('p');
-    const childElmDescrip = document.createElement('p');
-    const childElmPrice = document.createElement('p');
-    const childElmQtty = document.createElement('p');
-    const childElmSubTotal = document.createElement('p');
 
     for(let obj of produtos){
         if(obj.codProduto == document.getElementById('locateCode').value){
-        
             var itemPedido = document.getElementById('locateCode').value;
-        var descricaoPedido = obj.descProduto;
-        var precoPedido = obj.precoProduto;
-
-        console.log(itemPedido);
-        console.log(descricaoPedido);
-        console.log(precoPedido);
+            var descricaoPedido = obj.descProduto;
+            var precoPedido = obj.precoProduto;
         }
     }
-    document.getElementById('pItemValue').appendChild(childElmItem).textContent = itemPedido;
-    document.getElementById('pDescripValue').appendChild(childElmDescrip).textContent = descricaoPedido;
-    document.getElementById('pPriceValue').appendChild(childElmPrice).textContent = precoPedido;
-    document.getElementById('pQttyValue').appendChild(childElmQtty).textContent = document.getElementById('locateQtty').value;
-    document.getElementById('pSubTotalValue').appendChild(childElmSubTotal).textContent = precoPedido * document.getElementById('locateQtty').value;
+    // Validação do Item
+    if (listaDePedidos.indexOf(itemPedido) == -1){
+        const childElmItem = document.createElement('p');
+        const childElmDescrip = document.createElement('p');
+        const childElmPrice = document.createElement('p');
+        const childElmQtty = document.createElement('p');
+        const childElmSubTotal = document.createElement('p');
+        listaDePedidos.push(itemPedido);
+        document.getElementById('ulItemValue').appendChild(childElmItem).textContent = itemPedido;
+        document.getElementById('ulDescripValue').appendChild(childElmDescrip).textContent = descricaoPedido;
+        document.getElementById('ulPriceValue').appendChild(childElmPrice).textContent = precoPedido.toFixed(2);
+        document.getElementById('ulQttyValue').appendChild(childElmQtty).textContent = document.getElementById('locateQtty').value;
+        document.getElementById('ulSubTotalValue').appendChild(childElmSubTotal).setAttribute('class', 'liSubTotal');
+        document.getElementById('ulSubTotalValue').appendChild(childElmSubTotal).textContent = (precoPedido * document.getElementById('locateQtty').value).toFixed(2);
+    }
+    else{
+        alert('Item já adicionado ao pedido');
+    }
+    totalSumFunc();
 })
+
+// Função Soma Total
+function totalSumFunc(){
+    const subTotalArray = document.querySelectorAll('.liSubTotal');
+    let somaTotal = 0;
+    for(let subTotal of subTotalArray){
+        somaTotal += parseFloat(subTotal.textContent);
+    }
+    document.getElementById('totalPriceValue').value = somaTotal.toLocaleString('pt-BR', {style: 'currency', 'currency': 'BRL'});
+}
