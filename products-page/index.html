@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+    <title>Javascript - Products Page</title>
+</head>
+
+<body>
+    <header class="flex">
+        <!-- MENU LATERAL -->
+        <nav class="flex">
+            <ul>
+                <li id="clientsBtn" class="sideBtn"><span class="flex icons material-symbols-outlined">group</span>Clients</li>
+                <li id="productsBtn" class="sideBtn"><span class="flex icons material-symbols-outlined">shopping_bag</span>Products</li>
+                <li id="cartBtn" class="sideBtn"><span class="flex icons material-symbols-outlined">shopping_cart</span>Cart</li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="flex">
+
+        <!-- CLIENTS -->
+        <fieldset id="clientsFieldset" class="flex menuCliProd hidden mainMenus">
+            <legend>CLIENTS</legend>
+            <form id="clientForm" class="flex" method="post" name="clientForms">
+
+                <!-- BOTÃO FECHAR (CLIENTES) -->
+                <div class="flex divButton">
+                    <input class="closeBtn" type="button" value="x"> 
+                </div>
+
+                <div id="clientsInputs" class="all_inputs flex">
+                    <label id="clientCodeLabel" class="flex" for="clientCode">Code</label>
+                    <input id="clientCodeInput" class="flex input" type="text" name="clientCode" value="" disabled>
+                        
+                    <label id="clientLabel" class="flex" for="clientName">Name</label>
+                    <input id="clientName" class="flex input" type="text" name="clientName" value="">
+
+                    <label id="labelData" class="flex" for="signUpDate" >Sign Up Date</label>
+                    <input id="signUpDate" class="flex input" type="text" name="signUpDate" value="">
+                </div>
+
+                <div id="clientsButtons" class="allButtons flex">
+                    <div id="arrows" class="flex">
+                        <input id="leftArrowClients" class="arw flex" type="button" name="leftArrow" value="<">
+                        <input id="rightArrowClients" class="arw flex" type="button" name="rightArrow" value=">">
+                    </div>
+                    <div id="buttons" class="flex">
+                        <input id="newClientButton" class="flex newButton" type="button" name="newButton" value="New">
+                        <input id="saveClientBtn" class="flex saveButton" type="button" name="saveButton" value="Save">
+                    </div>
+                </div>
+            </form>
+        </fieldset>
+
+        <!-- PRODUCTS -->
+        <fieldset id="productsFieldset" class="flex menuCliProd mainMenus hidden">
+            <legend>PRODUCTS</legend>
+            <form id="productsForm" class="flex" method="post" name="productsForms">
+                <div class="flex divButton">
+                    <input class="closeBtn" type="button" value="x">
+                </div>
+
+                <div id="productsInputs" class="all_inputs flex">
+                    <label id="productCodeLabel" class="flex" for="productCode">Code</label>
+                    <input id="productCodeInput" class="flex input" type="text" name="productCode" value="" disabled>
+                        
+                    <label id="descriptionLabel" class="flex" for="description">Description</label>
+                    <input id="descriptionInput" class="flex input" type="text" name="description" value="">
+
+                    <label id="priceLabel" class="flex" for="priceInput">Price</label>
+                    <input id="priceInput" class="flex input" type="text" name="priceInput" value="">
+
+                    <label id="quantityLabel" class="flex" for="quantity">In Stock</label>
+                    <input id="quantityInput" class="flex input" type="text" name="quantity" value="">
+                </div>
+                <div id="productsButtons" class="allButtons flex">
+                    <div id="arrows" class="flex">
+                        <input id="leftArrowProd" class="arw flex" type="button" name="leftArrow" value="<">
+                        <input id="rightArrowProd" class="arw flex" type="button" name="rightArrow" value=">">
+                    </div>
+                    <div id="buttons" class="flex">
+                        <input id="newProductButton" class="flex newButton" type="button" name="newButton" value="New">
+                        <input id="saveProductsBtn" class="flex saveButton" type="button" name="saveButton" value="Save">
+                    </div>
+                </div>
+            </form>
+        </fieldset>
+
+        <!-- CART -->
+        <fieldset id="ordersFieldset" class="flex hidden mainMenus">
+            <legend>CART</legend>
+            <form id="ordersForm" class="flex" method="post" name="ordersForm">
+                <div class="flex divButton">
+                    <input class="closeBtn" type="button" value="x">
+                </div>
+
+                <div id="ordersDiv" class="divInputs flex">
+                    <label id="ordersCodeLabel" class="flex" for="ordersCodeInput">Client's Code</label>
+                    <input id="ordersCodeInput" class="flex input" type="text" name="ordersCodeInput" value="">
+                        
+                    <label id="ordersClientLabel" class="flex" for="ordersClientInput">Client's Name</label>
+                    <input id="ordersClientInput" class="flex input" type="text" name="ordersClientInput" value="" disabled>
+                </div>
+
+                <div id="locateProducts" class="flex">
+                    <legend>Search Products</legend>
+                    <div id="locateIds">
+                        <input id="locateCode" class="flex input" type="text" name="locateCode" value="">
+                        <input id="locateName" class="flex input" type="text" name="locateName" value="" disabled>
+                        <input id="locatePriceProd" class="flex input" type="text" name="locatePriceProd" value="" disabled>
+                        <input id="locateQtty" class="flex input" type="text" name="locateQtty" value="">
+                        <input id="locateButton" class="flex input" type="button" name="locateButton" value="Place Order">
+                    </div>
+                </div>
+
+                <div id="ordersItem" class="flex">
+                    <legend>Items in Cart</legend>
+                    <div id="subOrders" class="flex">
+                        <p class="pItem">Item</p>
+                        <p class="pDescrip">Description</p>
+                        <p class="pPrice">Price</p>
+                        <p class="pQtty">Qtty</p>
+                        <p class="pSubTotal">SubTotal</p>
+                    </div>
+                    <div id="ordersValue" class="flex">
+                        <ul id="ulItemValue" class="ulItem"> </ul>
+                        <ul id="ulDescripValue" class="ulDescrip"> </ul>
+                        <ul id="ulPriceValue" class="ulPrice"> </ul>
+                        <ul id="ulQttyValue" class="ulQtty"> </ul>
+                        <ul id="ulSubTotalValue"class="ulSubTotal"> </ul>
+                    </div>
+                </div>
+                <div id="totalPrice" class="flex">
+                    <input type="text" name="totalPrice" id="totalPriceValue" class="flex" value="" disabled>
+                </div>
+            </form>
+        </fieldset>
+    </main>
+<script type="module" src="script.js"></script>
+</body>
+</html>
