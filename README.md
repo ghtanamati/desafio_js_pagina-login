@@ -4,7 +4,7 @@ Login Page + Products Page
 ## Login Page
 - Insert your login and password to access the products page
 - User: admin
-- Password: 12345
+- Password: senha
 
 ## Products Page
 - Click on the side buttons to activate the menus (clients, products and cart):
