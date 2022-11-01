@@ -3,45 +3,44 @@ import { clients } from "../modules/clients.js";
 import { products } from "../modules/products.js";
 
 // Show Clients
-var clientVariable = 1;
+var clientControlVar = 1;
 
 function showClients(){
-    if(clientVariable > clients.length || clientVariable <= 0){
+    if(clientControlVar > clients.length || clientControlVar <= 0){
         defaultClients();
         alert('Code does not exist');
-    }
-    else{
+    } else{
         for(let obj of clients){
-            if(obj.clientCode == clientVariable){
+            if(obj.clientCode == clientControlVar){
             var clientNameInput = obj.clientName;
             var signUpDateInput = obj.signUpDate;
             }
         }
-        document.getElementById('clientCodeInput').value = clientCode;
-        document.getElementById('clientName').value  = clientNameInput;
-        document.getElementById('signUpDate').value  = signUpDateInput;
+        document.getElementById('clientCodeInput').value = clientControlVar;
+        document.getElementById('clientNameInput').value  = clientNameInput;
+        document.getElementById('signUpDateInput').value  = signUpDateInput;
     }
 }
 
 // Default Clients
 function defaultClients(){
-    clientVariable = 1;
+    clientControlVar = 1;
     document.getElementById('clientCodeInput').value = clients[0].clientCode;
-    document.getElementById('clientName').value = clients[0].clientName;
-    document.getElementById('signUpDate').value = clients[0].signUpDate;
+    document.getElementById('clientNameInput').value = clients[0].clientName;
+    document.getElementById('signUpDateInput').value = clients[0].signUpDate;
 }
 
 // Right Arrow - Clients
 const rightArrowClients = document.getElementById('rightArrowClients');
 rightArrowClients.addEventListener('click', function(){
-    clientVariable += 1;
+    clientControlVar += 1;
     showClients();
 })
 
 // Left Arrow - Clients
 const leftArrowClients = document.getElementById('leftArrowClients');
 leftArrowClients.addEventListener('click', function(){
-    clientVariable -= 1;
+    clientControlVar -= 1;
     showClients();
 })
 
@@ -49,11 +48,11 @@ leftArrowClients.addEventListener('click', function(){
 function newClientFunc(){
     let newClientValue = clients.length + 1;
     document.getElementById('clientCodeInput').value = newClientValue;
-    document.getElementById('clientName').value  = "";
+    document.getElementById('clientNameInput').value  = "";
 
     let clientDate = new Date();
     let correctDate = clientDate.toLocaleDateString('pt-BR')
-    document.getElementById('signUpDate').value  = correctDate;
+    document.getElementById('signUpDateInput').value  = correctDate;
 }
 
 // New Client Button
@@ -61,18 +60,38 @@ const newClientButton = document.getElementById('newClientButton');
 newClientButton.addEventListener('click', newClientFunc);
 
 // Save Client Button
-const saveClientButton = document.getElementById('saveClientBtn');
+const saveClientButton = document.getElementById('saveClientButton');
 saveClientButton.addEventListener('click', function(){
-    let newClientObject = {
-        "clientCode":"",
-        "clientName": "",
-        "signUpDate":"",
-    };
-    newClientObject.codCliente = parseInt(document.getElementById('clientCodeInput').value);
-    newClientObject.nomeCliente = document.getElementById('clientName').value;
-    newClientObject.dataCadCli = document.getElementById('signUpDate').value;
-    clients.push(newClientObject);
-    newClientFunc();
+    let ctrlVarOneClient = 0;
+    let ctrlVarTwoClient = 0;
+    const clientsInputs = document.getElementById('clientsInputs');
+    for(let inputs of clientsInputs.querySelectorAll('.input')){
+        if (inputs.value == ''){
+            ctrlVarOneClient += 1;
+        }
+    }
+    if(ctrlVarOneClient !== 0){
+        alert('Fill in the blanks!');
+    }
+    for(let obj of products){
+        if(obj.prodCode == parseInt(document.getElementById('clientCodeInput').value)){
+            alert('Code already registered');
+            ctrlVarTwoClient = 1;
+        }
+    }
+    if(ctrlVarOneClient == 0 && ctrlVarTwoClient !== 1){
+        let newClientObject = {
+            "clientCode":"",
+            "clientName": "",
+            "signUpDate":"",
+        };
+        newClientObject.clientCode = parseInt(document.getElementById('clientCodeInput').value);
+        newClientObject.clientName = document.getElementById('clientNameInput').value;
+        newClientObject.signUpDate = document.getElementById('signUpDateInput').value;
+        clients.push(newClientObject);
+        alert('Success! Client registered');
+        defaultClients();
+    }
 })
 
 // Botão X
@@ -90,8 +109,7 @@ const clientsBtn = document.getElementById('clientsBtn');
 clientsBtn.addEventListener('click', function(){
     if(document.getElementById('clientsFieldset').style.display == 'flex'){
         clearMenus();
-    }
-    else{
+    } else{
         clearMenus();
         document.getElementById('clientsFieldset').style.display = 'flex';
     }
@@ -103,8 +121,7 @@ const productsBtn = document.getElementById('productsBtn');
 productsBtn.addEventListener('click', function(){
     if(document.getElementById('productsFieldset').style.display == 'flex'){
         clearMenus();
-    }
-    else{
+    } else{
         clearMenus();
         document.getElementById('productsFieldset').style.display = 'flex';
     }
@@ -114,12 +131,11 @@ productsBtn.addEventListener('click', function(){
 // Cart Buttons
 const cartBtn = document.getElementById('cartBtn');
 cartBtn.addEventListener('click', function(){
-    if(document.getElementById('ordersFieldset').style.display == 'flex'){
+    if(document.getElementById('cartFieldset').style.display == 'flex'){
         clearMenus();
-    }
-    else{
+    } else{
         clearMenus();
-        document.getElementById('ordersFieldset').style.display = 'flex';
+        document.getElementById('cartFieldset').style.display = 'flex';
     }
 })
 
@@ -132,47 +148,46 @@ function clearMenus(){
 }
 
 // Show Products
-var productCode = 1;
+var productControlVar = 1;
 function showProducts(){
-    if(productCode > products.length || productCode <= 0){
+    if(productControlVar > products.length || productControlVar <= 0){
         defaultProducts();
         alert('Code does not exist');
-    }
-    else{
+    } else{
         for(let obj of products){
-            if(obj.prodCode == prodCode){
+            if(obj.prodCode == productControlVar){
             var productDescrip = obj.prodDescrip;
             var productPrice = obj.prodPrice;
             var productInStock = obj.prodInStock;
             }
         }
-        document.getElementById('productCodeInput').value = prodCode;
+        document.getElementById('productCodeInput').value = productControlVar;
         document.getElementById('descriptionInput').value  = productDescrip;
         document.getElementById('priceInput').value  = productPrice;
-        document.getElementById('quantityInput').value  = productInStock;
+        document.getElementById('inStockInput').value  = productInStock;
     }
 }
 
 // Default Products
 function defaultProducts(){
-    productCode = 1;
+    productControlVar = 1;
     document.getElementById('productCodeInput').value = products[0].prodCode;
     document.getElementById('descriptionInput').value  = products[0].prodDescrip;
     document.getElementById('priceInput').value  = products[0].prodPrice;
-    document.getElementById('quantityInput').value  = products[0].prodInStock;
+    document.getElementById('inStockInput').value  = products[0].prodInStock;
 }
 
 // Right Arrow - Products
 const rightArrowProd = document.getElementById('rightArrowProd');
 rightArrowProd.addEventListener('click', function(){
-    productCode += 1;
+    productControlVar += 1;
     showProducts();
 })
 
 // Left Arrow - Products
 const leftArrowProd = document.getElementById('leftArrowProd');
 leftArrowProd.addEventListener('click', function(){
-    productCode -= 1;
+    productControlVar -= 1;
     showProducts();
 })
 
@@ -182,105 +197,133 @@ function newProductFunc(){
     document.getElementById('productCodeInput').value = newProductValue;
     document.getElementById('descriptionInput').value  = "";
     document.getElementById('priceInput').value  = "";
-    document.getElementById('quantityInput').value  = "";
+    document.getElementById('inStockInput').value  = "";
 }
 
-// Botão Novo Produto
+// New Products Button
 const newProductButton = document.getElementById('newProductButton');
 newProductButton.addEventListener('click', newProductFunc);
 
-// Botão Salvar Produto
+// Save Products Button
 const saveProductsBtn = document.getElementById('saveProductsBtn');
 saveProductsBtn.addEventListener('click', function(){
-    let controlVarOne = 0;
-    let controlVarTwo = 0;
+    let ctrlVarProdOne = 0;
+    let ctrlVarProdTwo = 0;
     const varFieldset = document.getElementById('productsFieldset');
 
     for(let element of varFieldset.querySelectorAll('.input')){
         if (element.value == ''){  
-            controlVarOne += 1;
+            ctrlVarProdOne += 1;
         }
     }
-    if(controlVarOne !== 0){
+    if(ctrlVarProdOne !== 0){
         alert('Fill in the blanks');
     }
     for(let obj of products){
         if(obj.codProduto == parseInt(document.getElementById('productCodeInput').value)){
             alert('Code already registered');
-            controlVarTwo = 1;
+            ctrlVarProdTwo = 1;
         }
     }
-    if(controlVarOne == 0 && controlVarTwo !== 1){
+    if(ctrlVarProdOne == 0 && ctrlVarProdTwo !== 1){
         let newProductObject = {
             "prodCode": "",
             "prodDescrip": "",
             "prodPrice": "",
             "prodInStock": "",
         };
-        newProductObject.codProduto = parseInt(document.getElementById('productCodeInput').value);
-        newProductObject.descProduto = document.getElementById('descriptionInput').value;
-        newProductObject.precoProduto = parseFloat(document.getElementById('priceInput').value);
-        newProductObject.qtdEstoqueProd = parseInt(document.getElementById('quantityInput').value);
+        newProductObject.prodCode = parseInt(document.getElementById('productCodeInput').value);
+        newProductObject.prodDescrip = document.getElementById('descriptionInput').value;
+        newProductObject.prodPrice = parseFloat(document.getElementById('priceInput').value);
+        newProductObject.prodInStock = parseInt(document.getElementById('inStockInput').value);
         products.push(newProductObject);
         alert('Success! Product registered');
-        newProductFunc();
+        defaultProducts();
     }
 })
 
 // CART //
 // Show Clients Name
-const inputClientCode = document.getElementById('ordersCodeInput');
-inputClientCode.addEventListener('blur', function(){
+const cartClientsCodeInput = document.getElementById('clientsCodeInput');
+cartClientsCodeInput.addEventListener('blur', function(){
+    var ctrlVarCartClient = 0;
     for(let obj of clients){
-        if(obj.clientCode == document.getElementById('ordersCodeInput').value){
-        var ordersClientInput = obj.clientName;
+        if(obj.clientCode == document.getElementById('clientsCodeInput').value){
+            var cartClientNameInput = obj.clientName;
+            ctrlVarCartClient = 1;
         }
     }
-    document.getElementById('ordersClientInput').value = ordersClientInput;
+    if (ctrlVarCartClient == 1){
+        document.getElementById('clientsNameInput').value = cartClientNameInput;
+    } else{
+        alert('Insert a valid client');
+        document.getElementById('clientsCodeInput').value = 1;
+        document.getElementById('clientsNameInput').value = clients[0].clientName;
+    }
 })
 
 // Show Products Description
-const inputProductCode = document.getElementById('locateCode');
-inputProductCode.addEventListener('blur', function(){
+const cartInputProductCode = document.getElementById('inputProdCode');
+cartInputProductCode.addEventListener('blur', function(){
+    var ctrlVarCartProduct = 0;
     for(let obj of products){
-        if(obj.prodCode == document.getElementById('locateCode').value){
-        var prodDescripOrder = obj.prodDescrip;
-        var prodPriceOrder = obj.prodPrice;
+        if(obj.prodCode == document.getElementById('inputProdCode').value){
+            var prodDescripOrder = obj.prodDescrip;
+            var prodPriceOrder = obj.prodPrice;
+            ctrlVarCartProduct = 1;
         }
     }
-    document.getElementById('locateName').value = prodDescripOrder;
-    document.getElementById('locatePriceProd').value = prodPriceOrder.toFixed(2);
+    if (ctrlVarCartProduct == 1){
+        document.getElementById('inputProdName').value = prodDescripOrder;
+        document.getElementById('inputProdPrice').value = prodPriceOrder.toFixed(2);
+    } else{
+        alert('Insert a valid product');
+        document.getElementById('inputProdCode').value = 1;
+        document.getElementById('inputProdName').value = products[0].prodDescrip;
+        document.getElementById('inputProdPrice').value = products[0].prodPrice;
+    }
 })
 
 // Place Order Button
-const placeOrderButton = document.getElementById('locateButton');
+const placeOrderButton = document.getElementById('placeOrderButton');
 const orderArray = [];
 placeOrderButton.addEventListener('click', function(){
-
     for(let obj of products){
-        if(obj.prodCode == document.getElementById('locateCode').value){
-            var orderItem = document.getElementById('locateCode').value;
+        if(obj.prodCode == document.getElementById('inputProdCode').value){
+            var orderItem = document.getElementById('inputProdCode').value;
             var orderDescrip = obj.prodDescrip;
             var orderPrice = obj.prodPrice;
+            var orderStock = obj.prodInStock;
         }
     }
     // Validate Item
-    if (orderArray.indexOf(orderItem) == -1){
+    var varCartForm = 0;
+    const cartForm = document.getElementById('cartForm');
+    for(let inputs of cartForm.querySelectorAll('.input')){
+        if (inputs.value == ''){
+            varCartForm += 1;
+        }
+    }
+    if (varCartForm > 0){
+        alert('Fill in the blanks!');
+    }
+    else if (orderArray.indexOf(orderItem) !== -1){
+        alert('Item already in cart');
+    } else if (document.getElementById('inputProdQtty').value > orderStock){
+        alert('Not enough items in stock');
+    } else if (orderArray.indexOf(orderItem) == -1){
         const childElmItem = document.createElement('p');
         const childElmDescrip = document.createElement('p');
         const childElmPrice = document.createElement('p');
         const childElmQtty = document.createElement('p');
         const childElmSubTotal = document.createElement('p');
         orderArray.push(orderItem);
-        document.getElementById('ulItemValue').appendChild(childElmItem).textContent = orderItem;
-        document.getElementById('ulDescripValue').appendChild(childElmDescrip).textContent = orderDescrip;
-        document.getElementById('ulPriceValue').appendChild(childElmPrice).textContent = orderPrice.toFixed(2);
-        document.getElementById('ulQttyValue').appendChild(childElmQtty).textContent = document.getElementById('locateQtty').value;
-        document.getElementById('ulSubTotalValue').appendChild(childElmSubTotal).setAttribute('class', 'liSubTotal');
-        document.getElementById('ulSubTotalValue').appendChild(childElmSubTotal).textContent = (orderPrice * document.getElementById('locateQtty').value).toFixed(2);
-    }
-    else{
-        alert('Item already in cart');
+        document.getElementById('ulItem').appendChild(childElmItem).textContent = orderItem;
+        document.getElementById('ulDescrip').appendChild(childElmDescrip).textContent = orderDescrip;
+        document.getElementById('ulPrice').appendChild(childElmPrice).textContent = orderPrice.toFixed(2);
+        document.getElementById('ulQtty').appendChild(childElmQtty).textContent = document.getElementById('inputProdQtty').value;
+        document.getElementById('ulSubTotal').appendChild(childElmSubTotal).setAttribute('class', 'liSubTotal');
+        document.getElementById('ulSubTotal').appendChild(childElmSubTotal).textContent = (orderPrice * document.getElementById('inputProdQtty').value).toFixed(2);
     }
     totalSumFunc();
 })

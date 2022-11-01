@@ -74,7 +74,7 @@ fieldset#clientsFieldset, fieldset#productsFieldset{
     width: 400px;
 }
 
-fieldset#ordersFieldset{
+fieldset#cartFieldset{
     width: 550px;
 }
 
@@ -125,14 +125,14 @@ fieldset > form > div.allButtons{
     margin-bottom: 5px;
 }
 
-fieldset > form > div > div#arrows{
+fieldset > form > div > div.arrows{
     width: 100px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 
-fieldset > form > div > div#buttons{
+fieldset > form > div > div.buttons{
     width: 130px;
     display: flex;
     flex-direction: row;
@@ -164,13 +164,13 @@ fieldset > form > div > div > input.newButton{
     cursor: pointer;
 }
 
-fieldset > form > div#ordersItem{
+fieldset > form > div#itemsInCartDiv{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 
-fieldset > form > div > div#subOrders{
+fieldset > form > div > div#items-div-p{
     display: flex;
     flex-direction: row;
     justify-content: right;
@@ -178,64 +178,64 @@ fieldset > form > div > div#subOrders{
 
 /* MENU PEDIDOS*/
 
-fieldset > form > div#ordersDiv{
+fieldset > form > div#cartInputsDiv{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin-bottom: 15px;
 }
 
-fieldset > form > div#locateProducts{
+fieldset > form > div#searchProductsDiv{
     display: flex;
     flex-direction: column;
     border-top: 1px solid white;
     margin-bottom: 15px;
 }
 
-fieldset > form > div > div#locateIds{
+fieldset > form > div > div#search-div{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
 }
 
-fieldset > form > div > div > input#locateCode{
+fieldset > form > div > div > input#inputProdCode{
     width: 9%;
     color: black;
 }
 
-fieldset > form > div > div > input#locateName{
+fieldset > form > div > div > input#inputProdName{
     width: 33%;
     color: gray;
     background-color: lightgrey;
 }
 
-fieldset > form > div > div > input#locatePriceProd{
+fieldset > form > div > div > input#inputProdPrice{
     width: 13%;
     color: gray;
     background-color: lightgrey;
 }
 
-fieldset > form > div > div > input#locateQtty{
+fieldset > form > div > div > input#inputProdQtty{
     width: 13%;
     color: black;
     background-color: white;
 }
 
-fieldset > form > div > div > input#locateButton{
+fieldset > form > div > div > input#placeOrderButton{
     width: 31%;
     color: black;
     font-weight: bold;
     background-color: yellowgreen;
 }
 
-fieldset > form > div > div > input#locateButton:hover{
+fieldset > form > div > div > input#placeOrderButton:hover{
     background-color: yellow;
     cursor: pointer;
     transition: all 0.6s;
 }
 
-fieldset > form > div#ordersItem{
+fieldset > form > div#itemsInCartDiv{
     display: flex;
     flex-direction: column;
     border-top: 1px solid white;
@@ -247,41 +247,41 @@ fieldset > form > div > legend{
     margin-bottom: 10px;
 }
 
-fieldset > form > div > div#subOrders{
+fieldset > form > div > div#items-div-p{
     display: flex;
     flex-direction: row;
     font-weight: bold;
 }
 
-fieldset > form > div > div#ordersValue{
+fieldset > form > div > div#items-div-ul{
     display: flex;
     flex-direction: row;
     justify-content: right;
 }
 
-fieldset > form > div#totalPrice{
-    display: flex;
-    justify-content: right;
-}
-
-p.pItem, ul.ulItem{
+p#pItem, ul#ulItem{
     width: 13%;
 }
 
-p.pDescrip, ul.ulDescrip{
+p#pDescrip, ul#ulDescrip{
     width: 44%;
 }
 
-p.pPrice, ul.ulPrice{
+p#pPrice, ul#ulPrice{
     width: 13%;
 }
 
-p.pQtty, ul.ulQtty{
+p#pQtty, ul#ulQtty{
     width: 13%;
 }
 
-p.pSubTotal, ul.ulSubTotal{
+p#pSubTotal, ul#ulSubTotal{
     width: 15%;
+}
+
+fieldset > form > div#totalPrice{
+    display: flex;
+    justify-content: right;
 }
 
 fieldset > form > div > input#totalPriceValue{
