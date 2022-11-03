@@ -3,20 +3,20 @@ import { clients } from "../modules/clients.js";
 import { products } from "../modules/products.js";
 
 // Show Clients
-var clientControlVar = 1;
+var clientsIndex = 1;
 
 function showClients(){
-    if(clientControlVar > clients.length || clientControlVar <= 0){
+    if(clientsIndex > clients.length || clientsIndex <= 0){
         defaultClients();
         alert('Code does not exist');
     } else{
         for(let obj of clients){
-            if(obj.clientCode == clientControlVar){
+            if(obj.clientCode == clientsIndex){
             var clientNameInput = obj.clientName;
             var signUpDateInput = obj.signUpDate;
             }
         }
-        document.getElementById('clientCodeInput').value = clientControlVar;
+        document.getElementById('clientCodeInput').value = clientsIndex;
         document.getElementById('clientNameInput').value  = clientNameInput;
         document.getElementById('signUpDateInput').value  = signUpDateInput;
     }
@@ -24,7 +24,7 @@ function showClients(){
 
 // Default Clients
 function defaultClients(){
-    clientControlVar = 1;
+    clientsIndex = 1;
     document.getElementById('clientCodeInput').value = clients[0].clientCode;
     document.getElementById('clientNameInput').value = clients[0].clientName;
     document.getElementById('signUpDateInput').value = clients[0].signUpDate;
@@ -33,14 +33,14 @@ function defaultClients(){
 // Right Arrow - Clients
 const rightArrowClients = document.getElementById('rightArrowClients');
 rightArrowClients.addEventListener('click', function(){
-    clientControlVar += 1;
+    clientsIndex += 1;
     showClients();
 })
 
 // Left Arrow - Clients
 const leftArrowClients = document.getElementById('leftArrowClients');
 leftArrowClients.addEventListener('click', function(){
-    clientControlVar -= 1;
+    clientsIndex -= 1;
     showClients();
 })
 
@@ -81,16 +81,15 @@ saveClientButton.addEventListener('click', function(){
 
 // Check Blank Inputs - Clients
 function checkClientsBlank(){
-    let a = 0;
+    let countBlanks = 0;
     const clientsInputs = document.getElementById('clientsInputs');
     for(let inputs of clientsInputs.querySelectorAll('.input')){
         if (inputs.value == ''){
-            a += 1;
+            countBlanks += 1;
         }
     }
-    if(a !== 0){
+    if(countBlanks !== 0){
         alert('Fill in the blanks!');
-        return 1
     } else{
         return 0
     }
@@ -98,14 +97,14 @@ function checkClientsBlank(){
 
 // Check Already Registered Clients
 function checkClientsCode(){
-    let a = 0;
+    let countCodes = 0;
     for(let obj of products){
         if(obj.prodCode == parseInt(document.getElementById('clientCodeInput').value)){
             alert('Code already registered');
-            a = 1;
+            countCodes = 1;
         }
     }
-    if (a == 0){
+    if (countCodes == 0){
         return 0;
     }
 }
@@ -164,20 +163,20 @@ function clearMenus(){
 }
 
 // Show Products
-var productControlVar = 1;
+var productsIndex = 1;
 function showProducts(){
-    if(productControlVar > products.length || productControlVar <= 0){
+    if(productsIndex > products.length || productsIndex <= 0){
         defaultProducts();
         alert('Code does not exist');
     } else{
         for(let obj of products){
-            if(obj.prodCode == productControlVar){
+            if(obj.prodCode == productsIndex){
             var productDescrip = obj.prodDescrip;
             var productPrice = obj.prodPrice;
             var productInStock = obj.prodInStock;
             }
         }
-        document.getElementById('productCodeInput').value = productControlVar;
+        document.getElementById('productCodeInput').value = productsIndex;
         document.getElementById('descriptionInput').value  = productDescrip;
         document.getElementById('priceInput').value  = productPrice;
         document.getElementById('inStockInput').value  = productInStock;
@@ -186,7 +185,7 @@ function showProducts(){
 
 // Default Products
 function defaultProducts(){
-    productControlVar = 1;
+    productsIndex = 1;
     document.getElementById('productCodeInput').value = products[0].prodCode;
     document.getElementById('descriptionInput').value  = products[0].prodDescrip;
     document.getElementById('priceInput').value  = products[0].prodPrice;
@@ -196,21 +195,21 @@ function defaultProducts(){
 // Right Arrow - Products
 const rightArrowProd = document.getElementById('rightArrowProd');
 rightArrowProd.addEventListener('click', function(){
-    productControlVar += 1;
+    productsIndex += 1;
     showProducts();
 })
 
 // Left Arrow - Products
 const leftArrowProd = document.getElementById('leftArrowProd');
 leftArrowProd.addEventListener('click', function(){
-    productControlVar -= 1;
+    productsIndex -= 1;
     showProducts();
 })
 
 // New Product Function
 function newProductFunc(){
-    let newProductValue = products.length + 1;
-    document.getElementById('productCodeInput').value = newProductValue;
+    let newProductIndex = products.length + 1;
+    document.getElementById('productCodeInput').value = newProductIndex;
     document.getElementById('descriptionInput').value  = "";
     document.getElementById('priceInput').value  = "";
     document.getElementById('inStockInput').value  = "";
@@ -223,9 +222,9 @@ newProductButton.addEventListener('click', newProductFunc);
 // Save Products Button
 const saveProductsBtn = document.getElementById('saveProductsButton');
 saveProductsBtn.addEventListener('click', function(){
-    let a = checkProdBlanks();
-    let b = checkProdCode();
-    if(a == 0 && b == 0){
+    let countBlanks = checkProdBlanks();
+    let countCodes = checkProdCode();
+    if(countBlanks == 0 && countCodes == 0){
         let newProductObject = {
             "prodCode": "",
             "prodDescrip": "",
@@ -244,32 +243,30 @@ saveProductsBtn.addEventListener('click', function(){
 
 // Check Blank Inputs - Products
 function checkProdBlanks(){
-    let a = 0;
+    let countBlanks = 0;
     const productsInput = document.getElementById('productsInputs');
     for(let inputs of productsInput.querySelectorAll('.input')){
         if (inputs.value == ''){   
-            a += 1;
+            countBlanks += 1;
         }
     }
-    if(a !== 0){
+    if(countBlanks !== 0){
         alert('Fill in the blanks');
-        return 1;
-    }else{
+    } else{
         return 0;
     }
 }
 
 // Check Already Registered Codes
 function checkProdCode(){
-    var a = 0;
+    var countCodes = 0;
     for(let obj of products){
         if(obj.prodCode == parseInt(document.getElementById('productCodeInput').value)){
             alert('Code already registered');
-            a = 1;
-            return 1;
+            countCodes = 1;
         }
     }
-    if (a == 0){
+    if (countCodes == 0){
         return 0;
     }
 }
@@ -297,15 +294,15 @@ cartClientsCodeInput.addEventListener('blur', function(){
 // Show Products Description
 const cartInputProductCode = document.getElementById('inputProdCode');
 cartInputProductCode.addEventListener('blur', function(){
-    var ctrlVarCartProduct = 0;
+    var countCart = 0;
     for(let obj of products){
         if(obj.prodCode == document.getElementById('inputProdCode').value){
             var prodDescripOrder = obj.prodDescrip;
             var prodPriceOrder = obj.prodPrice;
-            ctrlVarCartProduct = 1;
+            countCart = 1;
         }
     }
-    if (ctrlVarCartProduct == 1){
+    if (countCart == 1){
         document.getElementById('inputProdName').value = prodDescripOrder;
         document.getElementById('inputProdPrice').value = prodPriceOrder.toFixed(2);
     } else{
@@ -318,32 +315,18 @@ cartInputProductCode.addEventListener('blur', function(){
 
 // Place Order Button
 const placeOrderButton = document.getElementById('placeOrderButton');
-const orderArray = [];
 placeOrderButton.addEventListener('click', function(){
-    for(let obj of products){
-        if(obj.prodCode == document.getElementById('inputProdCode').value){
+    for (let obj of products){
+        if (obj.prodCode == document.getElementById('inputProdCode').value){
             var orderItem = document.getElementById('inputProdCode').value;
             var orderDescrip = obj.prodDescrip;
             var orderPrice = obj.prodPrice;
-            var orderStock = obj.prodInStock;
         }
     }
-    // Validate Item
-    var varCartForm = 0;
-    const cartForm = document.getElementById('cartForm');
-    for(let inputs of cartForm.querySelectorAll('.input')){
-        if (inputs.value == ''){
-            varCartForm += 1;
-        }
-    }
-    if (varCartForm > 0){
-        alert('Fill in the blanks!');
-    }
-    else if (orderArray.indexOf(orderItem) !== -1){
-        alert('Item already in cart');
-    } else if (document.getElementById('inputProdQtty').value > orderStock){
-        alert('Not enough items in stock');
-    } else if (orderArray.indexOf(orderItem) == -1){
+    let blanksCheck = checkCartBlanks();
+    let codeCheck = checkCartCode();
+    let cartCheck = checkCartStock();
+    if (blanksCheck == 0 && codeCheck == 0 && cartCheck == 0){
         const childElmItem = document.createElement('p');
         const childElmDescrip = document.createElement('p');
         const childElmPrice = document.createElement('p');
@@ -359,6 +342,46 @@ placeOrderButton.addEventListener('click', function(){
     }
     totalSumFunc();
 })
+
+// Check Cart Blanks
+function checkCartBlanks(){
+    let countBlanks = 0;
+    const cartForm = document.getElementById('cartForm');
+    for(let inputs of cartForm.querySelectorAll('.input')){
+        if (inputs.value == ''){
+            countBlanks += 1;
+        }
+    }
+    if (countBlanks > 0){
+        alert('Fill in the blanks!');
+    } else{
+        return 0;
+    }
+}
+
+// Check Items Already in Cart
+var orderArray = [];
+function checkCartCode(){
+    if (orderArray.indexOf(document.getElementById('inputProdCode').value) !== -1){
+        alert('Item already in cart');
+    } else{
+        return 0;
+    }
+}
+
+// Check Cart Stock
+function checkCartStock(){
+    for (let obj of products){
+        if (obj.prodCode == document.getElementById('inputProdCode').value){
+            var orderStock = obj.prodInStock;
+        }
+    }
+    if (document.getElementById('inputProdQtty').value > orderStock){
+        alert('Not enough items in stock');
+    } else{
+        return 0;
+    }
+}
 
 // Total Sum Function
 function totalSumFunc(){
