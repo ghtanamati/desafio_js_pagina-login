@@ -205,14 +205,13 @@ const newProductButton = document.getElementById('newProductButton');
 newProductButton.addEventListener('click', newProductFunc);
 
 // Save Products Button
-const saveProductsBtn = document.getElementById('saveProductsBtn');
+const saveProductsBtn = document.getElementById('saveProductsButton');
 saveProductsBtn.addEventListener('click', function(){
     let ctrlVarProdOne = 0;
     let ctrlVarProdTwo = 0;
-    const varFieldset = document.getElementById('productsFieldset');
-
-    for(let element of varFieldset.querySelectorAll('.input')){
-        if (element.value == ''){  
+    const productsInput = document.getElementById('productsInputs');
+    for(let inputs of productsInput.querySelectorAll('.input')){
+        if (inputs.value == ''){   
             ctrlVarProdOne += 1;
         }
     }
@@ -220,7 +219,7 @@ saveProductsBtn.addEventListener('click', function(){
         alert('Fill in the blanks');
     }
     for(let obj of products){
-        if(obj.codProduto == parseInt(document.getElementById('productCodeInput').value)){
+        if(obj.prodCode == parseInt(document.getElementById('productCodeInput').value)){
             alert('Code already registered');
             ctrlVarProdTwo = 1;
         }
