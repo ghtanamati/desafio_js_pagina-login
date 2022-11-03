@@ -62,24 +62,9 @@ newClientButton.addEventListener('click', newClientFunc);
 // Save Client Button
 const saveClientButton = document.getElementById('saveClientButton');
 saveClientButton.addEventListener('click', function(){
-    let ctrlVarOneClient = 0;
-    let ctrlVarTwoClient = 0;
-    const clientsInputs = document.getElementById('clientsInputs');
-    for(let inputs of clientsInputs.querySelectorAll('.input')){
-        if (inputs.value == ''){
-            ctrlVarOneClient += 1;
-        }
-    }
-    if(ctrlVarOneClient !== 0){
-        alert('Fill in the blanks!');
-    }
-    for(let obj of products){
-        if(obj.prodCode == parseInt(document.getElementById('clientCodeInput').value)){
-            alert('Code already registered');
-            ctrlVarTwoClient = 1;
-        }
-    }
-    if(ctrlVarOneClient == 0 && ctrlVarTwoClient !== 1){
+    let a = checkClientsBlank();
+    let b = checkClientsCode();
+    if(a == 0 && b == 0){
         let newClientObject = {
             "clientCode":"",
             "clientName": "",
@@ -94,7 +79,38 @@ saveClientButton.addEventListener('click', function(){
     }
 })
 
-// Botão X
+// Check Blank Inputs - Clients
+function checkClientsBlank(){
+    let a = 0;
+    const clientsInputs = document.getElementById('clientsInputs');
+    for(let inputs of clientsInputs.querySelectorAll('.input')){
+        if (inputs.value == ''){
+            a += 1;
+        }
+    }
+    if(a !== 0){
+        alert('Fill in the blanks!');
+        return 1
+    } else{
+        return 0
+    }
+}
+
+// Check Already Registered Clients
+function checkClientsCode(){
+    let a = 0;
+    for(let obj of products){
+        if(obj.prodCode == parseInt(document.getElementById('clientCodeInput').value)){
+            alert('Code already registered');
+            a = 1;
+        }
+    }
+    if (a == 0){
+        return 0;
+    }
+}
+
+// X Button
 const xButton = document.querySelectorAll('.closeBtn');
 
 for(let xElement of xButton){
@@ -207,24 +223,9 @@ newProductButton.addEventListener('click', newProductFunc);
 // Save Products Button
 const saveProductsBtn = document.getElementById('saveProductsButton');
 saveProductsBtn.addEventListener('click', function(){
-    let ctrlVarProdOne = 0;
-    let ctrlVarProdTwo = 0;
-    const productsInput = document.getElementById('productsInputs');
-    for(let inputs of productsInput.querySelectorAll('.input')){
-        if (inputs.value == ''){   
-            ctrlVarProdOne += 1;
-        }
-    }
-    if(ctrlVarProdOne !== 0){
-        alert('Fill in the blanks');
-    }
-    for(let obj of products){
-        if(obj.prodCode == parseInt(document.getElementById('productCodeInput').value)){
-            alert('Code already registered');
-            ctrlVarProdTwo = 1;
-        }
-    }
-    if(ctrlVarProdOne == 0 && ctrlVarProdTwo !== 1){
+    let a = checkProdBlanks();
+    let b = checkProdCode();
+    if(a == 0 && b == 0){
         let newProductObject = {
             "prodCode": "",
             "prodDescrip": "",
@@ -240,6 +241,38 @@ saveProductsBtn.addEventListener('click', function(){
         defaultProducts();
     }
 })
+
+// Check Blank Inputs - Products
+function checkProdBlanks(){
+    let a = 0;
+    const productsInput = document.getElementById('productsInputs');
+    for(let inputs of productsInput.querySelectorAll('.input')){
+        if (inputs.value == ''){   
+            a += 1;
+        }
+    }
+    if(a !== 0){
+        alert('Fill in the blanks');
+        return 1;
+    }else{
+        return 0;
+    }
+}
+
+// Check Already Registered Codes
+function checkProdCode(){
+    var a = 0;
+    for(let obj of products){
+        if(obj.prodCode == parseInt(document.getElementById('productCodeInput').value)){
+            alert('Code already registered');
+            a = 1;
+            return 1;
+        }
+    }
+    if (a == 0){
+        return 0;
+    }
+}
 
 // CART //
 // Show Clients Name
